@@ -9,6 +9,8 @@ public class ARCursor : MonoBehaviour
     public GameObject objectToPlace;
     public ARRaycastManager raycastManager;
 
+    public Camera arCam;
+
     public bool useCursor = true;
 
     void Start()
@@ -43,7 +45,7 @@ public class ARCursor : MonoBehaviour
 
     void UpdateCursor()
     {
-        Vector2 screenPosition = Camera.main.ViewportToScreenPoint(new Vector2(0.5f, 0.5f));
+        Vector2 screenPosition = arCam.ViewportToScreenPoint(new Vector2(0.5f, 0.5f));
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
         raycastManager.Raycast(screenPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
 
