@@ -6,8 +6,10 @@ using UnityEngine.XR.ARFoundation;
 public class ARCursor : MonoBehaviour
 {
     public GameObject cursorChildObject;
-    public GameObject objectToPlace;
+    public List<GameObject> mobToPlace;
     public ARRaycastManager raycastManager;
+
+    public Camera arCam;
 
     public bool useCursor = true;
 
@@ -27,7 +29,7 @@ public class ARCursor : MonoBehaviour
         {
             if (useCursor)
             {
-                GameObject.Instantiate(objectToPlace, transform.position, transform.rotation);
+                GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], transform.position, transform.rotation);
             }
             else
             {
@@ -35,7 +37,7 @@ public class ARCursor : MonoBehaviour
                 raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
                 if (hits.Count > 0)
                 {
-                    GameObject.Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                    GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], hits[0].pose.position, hits[0].pose.rotation);
                 }
             }
         }
@@ -43,7 +45,7 @@ public class ARCursor : MonoBehaviour
 
     void UpdateCursor()
     {
-        Vector2 screenPosition = Camera.main.ViewportToScreenPoint(new Vector2(0.5f, 0.5f));
+        Vector2 screenPosition = arCam.ViewportToScreenPoint(new Vector2(0.5f, 0.5f));
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
         raycastManager.Raycast(screenPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
 
