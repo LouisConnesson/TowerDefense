@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class PlayerNetwork : NetworkBehaviour
 {
+    [SerializeField] private Transform spawnObjectPrefab;
+    private Transform spawnedObjectTransform;
+
     private NetworkVariable<MyCustomData> newValue = new NetworkVariable<MyCustomData>(
         new MyCustomData { 
             _int= 75,
@@ -40,14 +43,21 @@ public class PlayerNetwork : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
+            spawnedObjectTransform = Instantiate(spawnObjectPrefab);
+            spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
             //TestServerRPC(new ServerRpcParams());
-            TestClientRPC(new ClientRpcParams { Send= new ClientRpcSendParams { TargetClientIds = new List<ulong> { 1 } } });
+            //TestClientRPC(new ClientRpcParams { Send= new ClientRpcSendParams { TargetClientIds = new List<ulong> { 1 } } });
             /*            newValue.Value = new MyCustomData
                         {
                             _int = 10,
                             _bool = true,
                             _string = "ouioui",
                         };*/
+        }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            Destroy(spawnObjectPrefab);
         }
 
         Vector3 InputVector = new Vector3(0, 0, 0);
