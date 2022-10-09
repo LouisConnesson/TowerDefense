@@ -371,12 +371,12 @@ PrefabInstance:
     - target: {fileID: 2798414453351563853, guid: 2bdb7b623cd9c1a4aa6df36296a8e596,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.644581
+      value: -9.73
       objectReference: {fileID: 0}
     - target: {fileID: 2798414453351563853, guid: 2bdb7b623cd9c1a4aa6df36296a8e596,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 2798414453351563853, guid: 2bdb7b623cd9c1a4aa6df36296a8e596,
         type: 3}
@@ -422,6 +422,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nexus
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668887127948229103, guid: 2bdb7b623cd9c1a4aa6df36296a8e596,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 2.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bdb7b623cd9c1a4aa6df36296a8e596, type: 3}
