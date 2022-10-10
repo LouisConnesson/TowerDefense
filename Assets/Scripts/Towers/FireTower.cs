@@ -1,40 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VFX;
-using UnityEditor.VFX;
-using UnityEngine.Experimental.VFX;
 
-public class TowerManager : MonoBehaviour
+public class FireTower : MonoBehaviour
 {
     // Start is called before the first frame update
-    public List<GameObject> ennemiesList = new List<GameObject> ();
+    public List<GameObject> ennemiesList = new List<GameObject>();
     public GameObject bulletPrefab;
     public GameObject bulletSpawner;
+    public ParticleSystem particleLauncher;
+
     private GameObject objectToRotate;
-    public VisualEffect visualEffect;
 
     [SerializeField] private bool isShooting = false;
-    [SerializeField] private float timeBetweenShoot = 1f;
+    [SerializeField] private float timeBetweenShoot = 0.5f;
+    [SerializeField] private float bulletDamages = 1f;
     [SerializeField] private float bulletSpeed = 30f;
     void Start()
     {
-        //visualEffect.Stop();
-        objectToRotate = visualEffect.gameObject;
+        particleLauncher.Stop();
+        objectToRotate = particleLauncher.gameObject;
+        bulletPrefab.GetComponent<Bullet>().setDamage(bulletDamages);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isShooting)
+        if (isShooting)
         {
+            particleLauncher.Play();
+
+        }
+        else
+        {
+            particleLauncher.Stop();
             CancelInvoke();
         }
 
-        if(ennemiesList.Count > 0)
+        if (ennemiesList.Count > 0)
         {
-            GameObject ennemy = ennemiesList [0];
-            float dist = Vector3.Distance(objectToRotate.transform.position,ennemy.transform.position);
+            GameObject ennemy = ennemiesList[0];
+            float dist = Vector3.Distance(objectToRotate.transform.position, ennemy.transform.position);
             // dist = vitesse des prticules
 
             //rotation of the stone
@@ -44,17 +50,17 @@ public class TowerManager : MonoBehaviour
 
             // rotation of the flamethrower
             objectToRotate.transform.LookAt(ennemy.transform);
-            float newSpeed1 = (dist * 6) / 3;
-            float newSpeed2 = (dist * 7) / 3;
-            visualEffect.SetFloat("Speed1", newSpeed1);
-            visualEffect.SetFloat("Speed2", newSpeed2);
+            float newSpeed = (dist * 5) / 3;
+
+            ParticleSystem.MainModule psmain = particleLauncher.main;
+            psmain.startSpeed = newSpeed;
 
             //Shoot invisible object to ennemy to deal damage
             if (!isShooting)
             {
                 isShooting = true;
                 //StartCoroutine("InstantiateBullet", ennemy);
-                InvokeRepeating("InstantiateBullet", 0.5f, 1f);
+                InvokeRepeating("InstantiateBullet", 0.5f, timeBetweenShoot);
 
             }
 
@@ -79,7 +85,7 @@ public class TowerManager : MonoBehaviour
 
             Vector3 velocity = fromCurrentToEnnemy * bulletSpeed;
 
-            GameObject bullet = Instantiate(bulletPrefab,bulletSpawner.transform.position,bulletSpawner.transform.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
             bullet.GetComponent<Rigidbody>().velocity = velocity;
         }
 
@@ -87,30 +93,24 @@ public class TowerManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Ennemy")
+        if (other.tag == "Ennemy")
         {
-            Debug.Log("Ontriggerenter");
 
             ennemiesList.Add(other.gameObject);
         }
-        Debug.Log("Ontriggerenter");
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Ennemy")
+        if (other.tag == "Ennemy")
         {
-            //isShooting = false;
-
-            Debug.Log("Ontriggerexit");
-
-            for(int i=0;i< ennemiesList.Count; i++)
+            for (int i = 0; i < ennemiesList.Count; i++)
             {
                 if (other.gameObject == ennemiesList[i])
                 {
                     ennemiesList.Remove(ennemiesList[i]);
                 }
             }
-           
+
 
         }
     }
