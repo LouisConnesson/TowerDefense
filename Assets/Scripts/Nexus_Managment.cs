@@ -16,10 +16,10 @@ public class Nexus_Managment : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //slider.value = NexusCurrentLife/NexusMaxLife;
-        
+
         if (NexusCurrentLife <= 0)
         {
             GameOver = true;
