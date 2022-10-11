@@ -27,7 +27,6 @@ public class EnnemyTest : MonoBehaviour
         if(other.tag == "Bullet")
         {
             currentHealth -= other.GetComponent<Bullet>().GetBulletDamage();
-            Destroy(other.gameObject);
         }
 
     }
