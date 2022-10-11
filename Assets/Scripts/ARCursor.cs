@@ -11,7 +11,7 @@ public class ARCursor : MonoBehaviour
 
     public Camera arCam;
 
-    public bool useCursor = true;
+    public bool useCursor = false;
 
     void Start()
     {
