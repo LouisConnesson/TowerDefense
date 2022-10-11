@@ -12,7 +12,15 @@ public class GlobalMaterialMaterialize : MonoBehaviour
     {
         
     }
+    public float GetDissolve()
+    {
+        return dissolve;
 
+    }
+    public void SetDissolve(float newDissolve)
+    {
+        dissolve = newDissolve;
+    }
     // Update is called once per frame
     void Update()
     {
