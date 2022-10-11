@@ -16,6 +16,7 @@ public class FireTower : MonoBehaviour
     [SerializeField] private float timeBetweenShoot = 0.5f;
     [SerializeField] private float bulletDamages = 1f;
     [SerializeField] private float bulletSpeed = 30f;
+    [SerializeField] private bool isMaterialized = false;
     void Start()
     {
         particleLauncher.Stop();
@@ -26,50 +27,58 @@ public class FireTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isShooting)
+        float tmp = GetComponent<GlobalMaterialMaterialize>().GetDissolve();
+        if (tmp <= 0)
+            isMaterialized = true;
+
+        if (isMaterialized )
         {
-            particleLauncher.Play();
-
-        }
-        else
-        {
-            particleLauncher.Stop();
-            CancelInvoke();
-        }
-
-        if (ennemiesList.Count > 0)
-        {
-            GameObject ennemy = ennemiesList[0];
-            float dist = Vector3.Distance(objectToRotate.transform.position, ennemy.transform.position);
-            // dist = vitesse des prticules
-
-            //rotation of the stone
-            /*var dir = ennemy.transform.position - objectToRotate.transform.position; //a vector pointing from pointA to pointB
-            var rot = Quaternion.LookRotation(dir, Vector3.up); //calc a rotation that
-            objectToRotate.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, rot.z);*/
-
-            // rotation of the flamethrower
-            objectToRotate.transform.LookAt(ennemy.transform);
-            float newSpeed = (dist * 5) / 3;
-
-            ParticleSystem.MainModule psmain = particleLauncher.main;
-            psmain.startSpeed = newSpeed;
-
-            //Shoot invisible object to ennemy to deal damage
-            if (!isShooting)
+            if (isShooting)
             {
-                isShooting = true;
-                //StartCoroutine("InstantiateBullet", ennemy);
-                InvokeRepeating("InstantiateBullet", 0.5f, timeBetweenShoot);
+                particleLauncher.Play();
 
             }
+            else
+            {
+                particleLauncher.Stop();
+                CancelInvoke();
+            }
 
-        }
-        else
-        {
-            isShooting = false;
+            if (ennemiesList.Count > 0)
+            {
+                GameObject ennemy = ennemiesList[0];
+                float dist = Vector3.Distance(objectToRotate.transform.position, ennemy.transform.position);
+                // dist = vitesse des prticules
 
+                //rotation of the stone
+                /*var dir = ennemy.transform.position - objectToRotate.transform.position; //a vector pointing from pointA to pointB
+                var rot = Quaternion.LookRotation(dir, Vector3.up); //calc a rotation that
+                objectToRotate.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, rot.z);*/
+
+                // rotation of the flamethrower
+                objectToRotate.transform.LookAt(ennemy.transform);
+                float newSpeed = (dist * 5) / 3;
+
+                ParticleSystem.MainModule psmain = particleLauncher.main;
+                psmain.startSpeed = newSpeed;
+
+                //Shoot invisible object to ennemy to deal damage
+                if (!isShooting)
+                {
+                    isShooting = true;
+                    //StartCoroutine("InstantiateBullet", ennemy);
+                    InvokeRepeating("InstantiateBullet", 0.5f, timeBetweenShoot);
+
+                }
+
+            }
+            else
+            {
+                isShooting = false;
+
+            }
         }
+       
     }
 
     void InstantiateBullet()
@@ -93,25 +102,33 @@ public class FireTower : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Ennemy")
+        if (isMaterialized)
         {
+            if (other.tag == "Ennemy")
+            {
 
-            ennemiesList.Add(other.gameObject);
+                ennemiesList.Add(other.gameObject);
+            }
         }
+            
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Ennemy")
+        if (isMaterialized)
         {
-            for (int i = 0; i < ennemiesList.Count; i++)
+            if (other.tag == "Ennemy")
             {
-                if (other.gameObject == ennemiesList[i])
+                for (int i = 0; i < ennemiesList.Count; i++)
                 {
-                    ennemiesList.Remove(ennemiesList[i]);
+                    if (other.gameObject == ennemiesList[i])
+                    {
+                        ennemiesList.Remove(ennemiesList[i]);
+                    }
                 }
+
+
             }
-
-
         }
+         
     }
 }

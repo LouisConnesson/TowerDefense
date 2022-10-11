@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+<<<<<<< Updated upstream:Assets/Scripts/Towers/OldFireTower.cs
+=======
+
+>>>>>>> Stashed changes:Assets/Scripts/TowerManager.cs
+
 
 public class OldFireTower : MonoBehaviour
 {
