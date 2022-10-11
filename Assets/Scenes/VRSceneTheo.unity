@@ -776,6 +776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3579350872643696780, guid: 144e2df8aec409246b967009686900c1,
         type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579350872643696780, guid: 144e2df8aec409246b967009686900c1,
+        type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 12
       objectReference: {fileID: 0}
@@ -967,6 +972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: NoiseModule.strength.scalar
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579350872643696780, guid: 144e2df8aec409246b967009686900c1,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3579350872643696780, guid: 144e2df8aec409246b967009686900c1,
         type: 3}
