@@ -31,4 +31,13 @@ public class EnnemyTest : MonoBehaviour
         }
 
     }
+    private void OnParticleTrigger()
+    {
+        Debug.Log("particles trigger");
+    }
+    private void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("particles collisionb");
+
+    }
 }
