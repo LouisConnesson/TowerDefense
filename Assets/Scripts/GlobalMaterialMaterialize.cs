@@ -34,4 +34,15 @@ public class GlobalMaterialMaterialize : MonoBehaviour
             mat.material.SetFloat("_Dissolve", dissolve);
         
     }
+
+ 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "ConstructBullet")
+        {
+            dissolve -= other.GetComponent<Bullet>().GetBulletDamage();
+
+        }
+
+    }
 }

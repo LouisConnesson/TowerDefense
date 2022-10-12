@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: a4ad2d22e8ea1c04fa569953c577372b
+guid: 8f34f9dd5f5ddf34fa85ce97e47b9383
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 7139082312251503737
-    second: Armature|AttackAnim
+      74: 5716459820917340147
+    second: Armature|AttackAction
   - first:
-      74: -7055137838167897887
-    second: Armature|DeathAnim
+      74: -776775383478761978
+    second: Armature|DeathAction
   - first:
-      74: 7708416372242981982
-    second: Armature|FlyAnim
+      74: 2916363921074682841
+    second: Armature|WalkAction
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -42,11 +42,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|AttackAnim
-      takeName: Armature|AttackAnim
+      name: Armature|AttackAction
+      takeName: Armature|AttackAction
       internalID: 0
       firstFrame: 0
-      lastFrame: 45
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -71,11 +71,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|DeathAnim
-      takeName: Armature|DeathAnim
+      name: Armature|DeathAction
+      takeName: Armature|DeathAction
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 13
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -100,8 +100,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|FlyAnim
-      takeName: Armature|FlyAnim
+      name: Armature|WalkAction
+      takeName: Armature|WalkAction
       internalID: 0
       firstFrame: 0
       lastFrame: 40
