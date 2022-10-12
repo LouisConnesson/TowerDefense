@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefab: {fileID: 7984148213363173309, guid: e7b2ed56c961f974dbedb4a245d6664f,
     type: 3}
+  spawnPoint: []
 --- !u!114 &1434787469014634598
 MonoBehaviour:
   m_ObjectHideFlags: 0
