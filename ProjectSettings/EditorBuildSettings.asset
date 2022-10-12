@@ -15,6 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ARSceneBaptiste.unity
     guid: cd9c44c8dcba5b74db7578de8631c548
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a03545537418ed64d9a7d627b1e14fd4,
+      type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 03476d3aa96f26a42979a8f1cd0e0bcf,
@@ -28,4 +30,6 @@ EditorBuildSettings:
     com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: 1eb95d77acb39444e8cf44313496a874,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 58f40b12bbc864f3c96c6505a9a1e1e3,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 32d30b336859dab40ac98a3bd2999d6e,
       type: 2}
