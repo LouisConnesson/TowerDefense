@@ -8,6 +8,8 @@ public class ARCursor : MonoBehaviour
     public GameObject cursorChildObject;
     public List<GameObject> mobToPlace;
     public ARRaycastManager raycastManager;
+    private bool mapspawned;
+    [SerializeField] private GameObject Terrain;
 
     public Camera arCam;
 
@@ -16,6 +18,7 @@ public class ARCursor : MonoBehaviour
     void Start()
     {
         cursorChildObject.SetActive(useCursor);
+        mapspawned = false;
     }
 
     void Update()
@@ -37,7 +40,13 @@ public class ARCursor : MonoBehaviour
                 raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
                 if (hits.Count > 0)
                 {
-                    GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], hits[0].pose.position, hits[0].pose.rotation);
+                    if(mapspawned)
+                        GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], hits[0].pose.position, hits[0].pose.rotation);
+                    else
+                    {
+                        GameObject.Instantiate( Terrain, hits[0].pose.position, hits[0].pose.rotation);
+                        mapspawned = true;
+                    }
                 }
             }
         }
