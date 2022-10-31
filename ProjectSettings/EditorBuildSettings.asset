@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SceneLuis.unity
     guid: f1d5e5a593d09a443b4401cb7a79eaad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ARSceneBaptiste.unity
     guid: cd9c44c8dcba5b74db7578de8631c548
   m_configObjects:
