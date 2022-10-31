@@ -32,7 +32,15 @@ public class ConstructManager : MonoBehaviour
         GetController();
 
     }
-
+    public int GetClass()
+    {
+        return currentClassIndex;
+    }
+    public void SetClass(int newClass)
+    {
+        currentClassIndex = newClass;
+        return;
+    }
     // Update is called once per frame
     void Update()
     {
