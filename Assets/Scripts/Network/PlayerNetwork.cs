@@ -43,9 +43,7 @@ public class PlayerNetwork : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            spawnedObjectTransform = Instantiate(spawnObjectPrefab);
-            spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
-            //TestServerRPC(new ServerRpcParams());
+            SpawnMobsServerRPC(new ServerRpcParams());
             //TestClientRPC(new ClientRpcParams { Send= new ClientRpcSendParams { TargetClientIds = new List<ulong> { 1 } } });
             /*            newValue.Value = new MyCustomData
                         {
@@ -84,9 +82,13 @@ public class PlayerNetwork : NetworkBehaviour
     }
 
     [ServerRpc]
-    public void TestServerRPC(ServerRpcParams serverRpcParams)
+    public void SpawnMobsServerRPC(ServerRpcParams serverRpcParams)
     {
         Debug.Log("TestServerRPC : " + OwnerClientId + " ; " + serverRpcParams.Receive.SenderClientId);
+        spawnedObjectTransform = Instantiate(spawnObjectPrefab);
+        spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
+
+        spawnedObjectTransform.position = GameManager.Instance.GetRandomSpawnPoint();
     }
 
     [ClientRpc]

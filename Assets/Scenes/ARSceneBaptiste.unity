@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 142105376}
-  m_DetectionMode: -1
+  m_DetectionMode: 1
 --- !u!114 &86221513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1946,6 +1946,7 @@ MonoBehaviour:
   - {fileID: 7369188743192636882, guid: 9a209aa4bc00bb643bd74dc3673cfa18, type: 3}
   - {fileID: 7369188743192636882, guid: e11983cbe704b3446ab1106dc405c6a2, type: 3}
   raycastManager: {fileID: 86221511}
+  Terrain: {fileID: 3621283008176849177, guid: ea1eb08b5e497044fb736f8c7370ce2a, type: 3}
   arCam: {fileID: 1173455409}
   useCursor: 0
 --- !u!4 &706594174
@@ -2885,7 +2886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1382430983
 Transform:
   m_ObjectHideFlags: 0
@@ -2893,7 +2894,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382430982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
