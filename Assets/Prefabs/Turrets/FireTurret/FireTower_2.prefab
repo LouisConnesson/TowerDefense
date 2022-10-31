@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9003414659666669860}
   - component: {fileID: 2870179341936249231}
   - component: {fileID: 5040952564446961982}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 518706690935952808}
   - component: {fileID: 5357534213245209228}
   - component: {fileID: 5040952564446961980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 5040952564205174643}
   - component: {fileID: 5040952564205174640}
   - component: {fileID: 7782092468823754666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5040952564586793020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5040952564586793021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.97, z: 0}
+  m_LocalPosition: {x: 0, y: 4.235038, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -337,7 +337,8 @@ GameObject:
   - component: {fileID: 5040952565269599888}
   - component: {fileID: 5040952565269599889}
   - component: {fileID: 6523129442624476389}
-  m_Layer: 0
+  - component: {fileID: 5235275956159561418}
+  m_Layer: 8
   m_Name: FireTower_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,6 +397,7 @@ MonoBehaviour:
   timeBetweenShoot: 0.5
   bulletDamages: 1
   bulletSpeed: 30
+  isMaterialized: 0
 --- !u!114 &6523129442624476389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +418,20 @@ MonoBehaviour:
   - {fileID: 7145368333201287978}
   - {fileID: 5040952564205174646}
   materials: []
-  dissolve: 1
+  dissolve: 0
+--- !u!65 &5235275956159561418
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040952565269599895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.7445831, z: 1}
+  m_Center: {x: 0, y: 0.025150836, z: 0}
 --- !u!1 &5274953728359242852
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4791749581531104990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5274953728359242852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.28503788, z: 0}
+  m_LocalPosition: {x: 0, y: 0.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -466,7 +481,7 @@ GameObject:
   - component: {fileID: 7967083542671516086}
   - component: {fileID: 7331910795232495936}
   - component: {fileID: 5040952564446961981}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +579,7 @@ GameObject:
   - component: {fileID: 500981979115550807}
   - component: {fileID: 2708159023497519901}
   - component: {fileID: 5040952564446961970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +677,7 @@ GameObject:
   - component: {fileID: 4201780064407592398}
   - component: {fileID: 3021918139862515150}
   - component: {fileID: 5040952564446961983}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,6 +775,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireThrowerParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 5196770144484233581, guid: 5d7d5683021dbc74a957bd45bfd123de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5196770144484233582, guid: 5d7d5683021dbc74a957bd45bfd123de,
         type: 3}
       propertyPath: m_RootOrder
@@ -788,12 +808,12 @@ PrefabInstance:
     - target: {fileID: 5196770144484233582, guid: 5d7d5683021dbc74a957bd45bfd123de,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.88
+      value: 4.145038
       objectReference: {fileID: 0}
     - target: {fileID: 5196770144484233582, guid: 5d7d5683021dbc74a957bd45bfd123de,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5196770144484233582, guid: 5d7d5683021dbc74a957bd45bfd123de,
         type: 3}
