@@ -12,4 +12,16 @@ public class PlayerInterface : MonoBehaviour
     {
         PlayerPrefs.SetInt("typeOfMob", 1);
     }
+    public void spawnMob3()
+    {
+        PlayerPrefs.SetInt("typeOfMob", 2);
+    }
+    public void spawnMob4()
+    {
+        PlayerPrefs.SetInt("typeOfMob", 3);
+    }
+    public void spawnMob5()
+    {
+        PlayerPrefs.SetInt("typeOfMob", 4);
+    }
 }
