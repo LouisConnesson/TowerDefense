@@ -2,14 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
-
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 public class OldFireTower : MonoBehaviour
 {
