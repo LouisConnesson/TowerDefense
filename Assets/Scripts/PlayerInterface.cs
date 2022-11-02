@@ -6,9 +6,18 @@ public class PlayerInterface : MonoBehaviour
 {
     [SerializeField] private int Coins = 1000;
     public GameObject textCoin;
+    public GameObject textTimerSkill;
+    public GameObject buttonSkill;
+    public GameObject buttonSkillUsed;
+    private int timer = 30;
     private void Awake()
     {
         StartCoroutine(timerCoins());
+    }
+
+    public void skillUsed()
+    {
+        StartCoroutine(timerSkill());
     }
 
     public void spawnMob1()
@@ -44,6 +53,7 @@ public class PlayerInterface : MonoBehaviour
     private void Update()
     {
         textCoin.GetComponent<TMPro.TextMeshProUGUI>().text = Coins.ToString();
+        textTimerSkill.GetComponent<TMPro.TextMeshProUGUI>().text = timer.ToString();
     }
     IEnumerator timerCoins()
     {
@@ -52,5 +62,16 @@ public class PlayerInterface : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             Coins++;
         }
+    }
+    IEnumerator timerSkill()
+    {
+        while (timer > 0)
+        {
+            yield return new WaitForSeconds(1);
+            timer--;
+        }
+        buttonSkill.SetActive(true);
+        buttonSkillUsed.SetActive(false);
+        timer = 30;
     }
 }
