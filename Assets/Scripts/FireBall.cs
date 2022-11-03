@@ -20,7 +20,6 @@ public class FireBall : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision");
         fireBallParticles.Stop();
         explosionParticles.Play();
     }

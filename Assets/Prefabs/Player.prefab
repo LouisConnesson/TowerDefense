@@ -163,6 +163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobPrefab: {fileID: 7288366735673788460, guid: c386bff17a4efc944a3376ce83f4b53e,
     type: 3}
+  hersePrefab: {fileID: 1075288139499648754, guid: 06ddc6948e1103f48a9cf28f0f32350b,
+    type: 3}
+  isPlacingHerse: 0
+  herseRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &1434787469014634598
 MonoBehaviour:
   m_ObjectHideFlags: 0

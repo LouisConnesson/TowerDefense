@@ -21,8 +21,8 @@ public class ConstructWeapon : MonoBehaviour
     {
 
     }
-    private void InstantiateBullet()
 
+    private void InstantiateBullet()
     {
         Vector3 velocity = transform.forward * bulletSpeed;
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
