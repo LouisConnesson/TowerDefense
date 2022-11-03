@@ -36,9 +36,15 @@ public class ConstructManager : MonoBehaviour
     {
         return currentClassIndex;
     }
-    public void SetClass(int newClass)
+    public void SetClass(int newClassIndex)
     {
-        currentClassIndex = newClass;
+        currentClassIndex = newClassIndex;
+        currentBuildingIndex = 0;
+        return;
+    }
+    public void SetBuilding(int newBuildingIndex)
+    {
+        currentBuildingIndex = newBuildingIndex;
         return;
     }
     // Update is called once per frame
@@ -61,10 +67,15 @@ public class ConstructManager : MonoBehaviour
             }
 
             targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-            if (triggerValue > 0.1f)
+            if (triggerValue > 0.3f)
             {
-                Debug.Log("Trigger pressed + ");
+                GetComponent<CanvasController>().SetCanvas(true);
                 Debug.Log(triggerValue);
+
+            }
+            else
+            {
+                GetComponent<CanvasController>().SetCanvas(false);
 
             }
 
