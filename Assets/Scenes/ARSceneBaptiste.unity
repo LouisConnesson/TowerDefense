@@ -1466,6 +1466,7 @@ MonoBehaviour:
   - {fileID: 7369188743192636882, guid: 9a209aa4bc00bb643bd74dc3673cfa18, type: 3}
   - {fileID: 7369188743192636882, guid: e11983cbe704b3446ab1106dc405c6a2, type: 3}
   raycastManager: {fileID: 86221511}
+  ARPlaneObject: {fileID: 86221509}
   arCam: {fileID: 1173455409}
   useCursor: 0
   Map: {fileID: 6456443272083705801, guid: 78bdff35fa14c8f48bd38e7b687727ea, type: 3}

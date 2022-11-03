@@ -10,6 +10,7 @@ public class ARCursor : MonoBehaviour
     public GameObject cursorChildObject;
     public List<GameObject> mobToPlace;
     public ARRaycastManager raycastManager;
+    [SerializeField]  public GameObject ARPlaneObject;
 
     public Camera arCam;
 
@@ -45,23 +46,23 @@ public class ARCursor : MonoBehaviour
                     raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
                     if (hits.Count > 0)
                     {
-                        GameObject.Instantiate(Map, hits[0].pose.position, hits[0].pose.rotation);
+                        GameObject.Instantiate(Map, hits[0].pose.position + new Vector3(-2.562f, 0, -2.223f), hits[0].pose.rotation);
+                        //ARPlaneObject.GetComponent<ARPlaneMeshVisualizer>().enabled = false;
+                        //ARPlaneObject.SetActive(false);
+
+                        ARPlaneObject.GetComponent<ARPlaneManager>().requestedDetectionMode = 0;
+
                         MapSpawned = true;
-                        textComponent.text = "Tu Fait spawn la map";
                     }
                 }
                 else
                 {
-                    textComponent.text = "Tu Veux faire spawn";
                     RaycastHit hit;
                     if (Physics.Raycast(arCam.transform.position, arCam.transform.forward, out hit, Mathf.Infinity))
                     {
-                        textComponent.text = "Ton rayon a touché";
-                        textComponent.text = hit.collider.gameObject.name;
-                        if (hit.collider.gameObject.name == "Terrain")
+                        if (hit.collider.gameObject.name == "Terrain(Clone)")
                         {
                             GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], hit.point, transform.rotation);
-                            textComponent.text = "BG";
                         }
                     }
                 }
