@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     float beginTime = 0;
     bool m_GameIsPaused = false;
 
-    [SerializeField] private List<Transform> spawnPoint;
+    [SerializeField] private List<Transform> spawnPoints;
+    [SerializeField] private Transform castle;
 
     private void Start()
     {
@@ -25,9 +26,14 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         return Time.time - beginTime;
     }
 
-    public Vector3 GetRandomSpawnPoint()
+    public List<Transform> GetSpawnPointList()
     {
-        int rand = Random.Range(0, 3);
-        return spawnPoint[rand].position;
+        return spawnPoints;
     }
+
+    public Vector3 GetCastlePosition()
+    {
+        return castle.position;
+    }
+
 }

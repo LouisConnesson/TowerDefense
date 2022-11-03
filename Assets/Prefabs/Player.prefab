@@ -126,8 +126,8 @@ Transform:
   m_GameObject: {fileID: 4684781118632052786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4684781118376838579}
   m_Father: {fileID: 0}
@@ -161,9 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da07e0edc4e2c9a449e518a88e7b7fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObjectPrefab: {fileID: 7984148213363173309, guid: e7b2ed56c961f974dbedb4a245d6664f,
+  mobPrefab: {fileID: 7288366735673788460, guid: c386bff17a4efc944a3376ce83f4b53e,
     type: 3}
-  spawnPoint: []
 --- !u!114 &1434787469014634598
 MonoBehaviour:
   m_ObjectHideFlags: 0
