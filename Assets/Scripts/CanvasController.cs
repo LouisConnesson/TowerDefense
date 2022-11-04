@@ -9,13 +9,16 @@ public class skills
 }
 public class CanvasController : MonoBehaviour
 {
+    [SerializeField] private GameObject canvas;
+
+
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject classesMenu;
     [SerializeField] private List<skills> canvasMenu = new List<skills>();
     // Start is called before the first frame update
     void Start()
     {
-        
+        Exit();
     }
 
     // Update is called once per frame
@@ -25,31 +28,43 @@ public class CanvasController : MonoBehaviour
     }
     public void Trigger(int skill)
     {
-        if (skill == 0)
+        if (skill == -1)
         {
             mainMenu.SetActive(false);
-            classesMenu.SetActive(false);
+            classesMenu.SetActive(true);
         }
         else
         {
             int classe = GetComponent<ConstructManager>().GetClass();
             Debug.Log("classe :" + classe + " skill: " + skill);
             mainMenu.SetActive(false);
-            canvasMenu[classe].List[skill-1].SetActive(true);
+            canvasMenu[classe].List[skill].SetActive(true);
         }
        
     }
-    private void SetClass(int newClass)
+    public void SetCanvas(bool isActive)
     {
-        GetComponent<ConstructManager>().SetClass(newClass);
+        canvas.SetActive(isActive);
+    }
+    public void SetClass(int newClassIndex)
+    {
+        Exit();
+
+        GetComponent<ConstructManager>().SetClass(newClassIndex);
+    }
+    public void SetBuilding(int newBuildingIndex)
+    {
+
+        GetComponent<ConstructManager>().SetBuilding(newBuildingIndex);
     }
     public void Exit()
     {
         mainMenu.SetActive(true);
-        /*for(int i = 0; i < canvasMenu.Count; i++)
+        classesMenu.SetActive(false);
+        for(int i = 0; i < canvasMenu.Count; i++)
         {
             for (int j = 0; j < canvasMenu[i].List.Count; j++)
                 canvasMenu[i].List[j].SetActive(false);
-        }*/
+        }
     }
 }

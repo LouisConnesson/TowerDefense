@@ -8,7 +8,10 @@ using UnityEngine.AI;
 public class PlayerNetwork : NetworkBehaviour
 {
     [SerializeField] private Transform mobPrefab; //change to list when their will be some differents
+    [SerializeField] private Transform hersePrefab; //change to list when their will be some differents
     private List<Transform> mobList = new List<Transform>();
+    [SerializeField] bool isPlacingHerse = false;
+    [SerializeField] Quaternion herseRotation = Quaternion.identity;
 
     /*    private NetworkVariable<MyCustomData> newValue = new NetworkVariable<MyCustomData>(
             new MyCustomData { 
@@ -78,6 +81,28 @@ public class PlayerNetwork : NetworkBehaviour
         {
             InputVector.x += 1;
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isPlacingHerse = isPlacingHerse?false:true;
+        }
+
+        if (isPlacingHerse)
+        {
+            herseRotation.SetEulerAngles(0, ((int)herseRotation.eulerAngles.y + (int) Input.mouseScrollDelta.y),0); //marche po
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 4))
+                {
+                    Transform herse = Instantiate(hersePrefab, hit.transform.position, herseRotation, transform.parent);
+                    herse.GetComponent<NetworkObject>().Spawn(true);
+                }
+            }
+
+        }
+
 
         float moveSpeed = 3f;
         transform.position += InputVector * moveSpeed * Time.deltaTime;
