@@ -13,6 +13,8 @@ public class PlayerNetwork : NetworkBehaviour
     [SerializeField] bool isPlacingHerse = false;
     [SerializeField] Quaternion herseRotation = Quaternion.identity;
 
+    //private NavMeshSurface surface;
+
     /*    private NetworkVariable<MyCustomData> newValue = new NetworkVariable<MyCustomData>(
             new MyCustomData { 
                 _int= 75,
@@ -89,18 +91,18 @@ public class PlayerNetwork : NetworkBehaviour
 
         if (isPlacingHerse)
         {
-            herseRotation.SetEulerAngles(0, ((int)herseRotation.eulerAngles.y + (int) Input.mouseScrollDelta.y),0); //marche po
+            herseRotation.eulerAngles = new Vector3(0, ((int)herseRotation.eulerAngles.y + (int) Input.mouseScrollDelta.y),0); //marche po
 
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 4))
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
                 {
-                    Transform herse = Instantiate(hersePrefab, hit.transform.position, herseRotation, transform.parent);
+                    Transform herse = Instantiate(hersePrefab, hit.point, herseRotation, transform.parent);
                     herse.GetComponent<NetworkObject>().Spawn(true);
+                    //surface.BuildNavMesh();
                 }
             }
-
         }
 
 
