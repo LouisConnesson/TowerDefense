@@ -47,18 +47,19 @@ public class ARCursor : MonoBehaviour
                     if (hits.Count > 0)
                     {
                         GameObject.Instantiate(Map, hits[0].pose.position + new Vector3(-2.562f, 0, -2.223f), hits[0].pose.rotation);
-                        //ARPlaneObject.GetComponent<ARPlaneMeshVisualizer>().enabled = false;
-                        //ARPlaneObject.SetActive(false);
 
                         ARPlaneObject.GetComponent<ARPlaneManager>().requestedDetectionMode = 0;
 
                         MapSpawned = true;
+                        cursorChildObject.SetActive(true);
                     }
                 }
                 else
                 {
                     RaycastHit hit;
-                    if (Physics.Raycast(arCam.transform.position, arCam.transform.forward, out hit, Mathf.Infinity))
+                    Ray ray = arCam.ScreenPointToRay(Input.mousePosition);
+                    //if (Physics.Raycast(arCam.transform.position, arCam.transform.forward, out hit, Mathf.Infinity))
+                    if (Physics.Raycast(ray, out hit))
                     {
                         if (hit.collider.gameObject.name == "Terrain(Clone)")
                         {
