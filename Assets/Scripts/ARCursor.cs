@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class ARCursor : MonoBehaviour
 {
@@ -40,6 +41,20 @@ public class ARCursor : MonoBehaviour
             }
             else
             {
+
+
+               /* var pointerEventData = new EventSystems.PointerEventData { position = Input.GetTouch(0).position };
+                var raycastResults = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+
+                if (raycastResults.Count > 0)
+                {
+                    foreach (var result in RaycastResults)
+                    {
+                        ...
+                    }
+                }*/
+
                 if (!MapSpawned)
                 {
                     List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -51,7 +66,6 @@ public class ARCursor : MonoBehaviour
                         ARPlaneObject.GetComponent<ARPlaneManager>().requestedDetectionMode = 0;
 
                         MapSpawned = true;
-                        cursorChildObject.SetActive(true);
                     }
                 }
                 else
@@ -62,7 +76,7 @@ public class ARCursor : MonoBehaviour
                     if (Physics.Raycast(ray, out hit))
                     {
                         if (hit.collider.gameObject.name == "Terrain(Clone)")
-                        {
+                        { 
                             GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], hit.point, transform.rotation);
                         }
                     }
