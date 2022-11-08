@@ -55,6 +55,15 @@ public class PlayerInterface : MonoBehaviour
         textCoin.GetComponent<TMPro.TextMeshProUGUI>().text = Coins.ToString();
         textTimerSkill.GetComponent<TMPro.TextMeshProUGUI>().text = timer.ToString();
     }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
+    }
+
     IEnumerator timerCoins()
     {
         while (true)
