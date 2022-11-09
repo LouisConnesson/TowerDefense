@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ennemy
   - Bullet
+  - Terrain
   layers:
   - Default
   - TransparentFX

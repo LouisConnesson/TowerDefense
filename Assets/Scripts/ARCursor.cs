@@ -11,7 +11,7 @@ public class ARCursor : MonoBehaviour
     public GameObject cursorChildObject;
     public List<GameObject> mobToPlace;
     public ARRaycastManager raycastManager;
-    [SerializeField]  public GameObject ARPlaneObject;
+    [SerializeField] public GameObject ARPlaneObject;
 
     public Camera arCam;
 
@@ -43,17 +43,17 @@ public class ARCursor : MonoBehaviour
             {
 
 
-               /* var pointerEventData = new EventSystems.PointerEventData { position = Input.GetTouch(0).position };
-                var raycastResults = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+                /* var pointerEventData = new EventSystems.PointerEventData { position = Input.GetTouch(0).position };
+                 var raycastResults = new List<RaycastResult>();
+                 EventSystem.current.RaycastAll(pointerEventData, raycastResults);
 
-                if (raycastResults.Count > 0)
-                {
-                    foreach (var result in RaycastResults)
-                    {
-                        ...
-                    }
-                }*/
+                 if (raycastResults.Count > 0)
+                 {
+                     foreach (var result in RaycastResults)
+                     {
+                         ...
+                     }
+                 }*/
 
                 if (!MapSpawned)
                 {
@@ -61,7 +61,8 @@ public class ARCursor : MonoBehaviour
                     raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
                     if (hits.Count > 0)
                     {
-                        GameObject.Instantiate(Map, hits[0].pose.position + new Vector3(-2.562f, 0, -2.223f), hits[0].pose.rotation);
+                        //GameObject.Instantiate(Map, hits[0].pose.position + new Vector3(-2.562f, 0, -2.223f), hits[0].pose.rotation);
+                        GameObject.Instantiate(Map, hits[0].pose.position/* + new Vector3(-1.145f, 0, -1.145f)*/, hits[0].pose.rotation);
 
                         ARPlaneObject.GetComponent<ARPlaneManager>().requestedDetectionMode = 0;
 
@@ -75,8 +76,8 @@ public class ARCursor : MonoBehaviour
                     //if (Physics.Raycast(arCam.transform.position, arCam.transform.forward, out hit, Mathf.Infinity))
                     if (Physics.Raycast(ray, out hit))
                     {
-                        if (hit.collider.gameObject.name == "Terrain(Clone)")
-                        { 
+                        if (hit.collider.gameObject.tag == "Terrain")
+                        {
                             GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], hit.point, transform.rotation);
                         }
                     }
