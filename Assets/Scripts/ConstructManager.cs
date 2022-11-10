@@ -16,8 +16,10 @@ public class Magic
 }
 public class ConstructManager : MonoBehaviour
 {
-    public InputDevice targetDevice;
-    private bool isControllerFound = false;
+    public InputDevice targetDeviceRight;
+    public InputDevice targetDeviceLeft;
+    private bool isControllerRightFound = false;
+    private bool isControllerLeftFound = false;
     private float constructCD;
 
     [SerializeField] int currentClassIndex;
@@ -37,16 +39,16 @@ public class ConstructManager : MonoBehaviour
     }
     void Update()
     {
-        if (!isControllerFound)
+        if (!isControllerRightFound || !isControllerLeftFound)
             GetController();
 
-        if (isControllerFound)
+        if (isControllerRightFound && isControllerLeftFound)
         {
             currentClassIndex = PlayerMenuController.Instance.GetGamemode();
 
             if (currentClassIndex == 0)
             {
-                if (targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue) && primaryButtonValue && isConstructAvailable)
+                if (targetDeviceRight.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue) && primaryButtonValue && isConstructAvailable)
                 {
                     isConstructAvailable = false;
                     ConstructBuilding();
@@ -55,7 +57,7 @@ public class ConstructManager : MonoBehaviour
 
                 }
 
-                targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+                targetDeviceLeft.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
                 if (triggerValue > 0.3f)
                 {
                     //GetComponent<CanvasController>().SetCanvas(true);
@@ -70,7 +72,7 @@ public class ConstructManager : MonoBehaviour
             }
             if (currentClassIndex == 1)
             {
-                targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+                targetDeviceRight.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
                 if (triggerValue > 0.3f)
                 {
                     if (!isCasting)
@@ -103,6 +105,7 @@ public class ConstructManager : MonoBehaviour
 
         List<UnityEngine.XR.InputDevice> devices = new List<UnityEngine.XR.InputDevice>();
         InputDeviceCharacteristics righControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
+        InputDeviceCharacteristics leftControllerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
         InputDevices.GetDevicesWithCharacteristics(righControllerCharacteristics, devices);
 
         foreach (var item in devices)
@@ -111,10 +114,17 @@ public class ConstructManager : MonoBehaviour
         }
         if (devices.Count > 0)
         {
-            targetDevice = devices[0];
-            isControllerFound = true;
-            Debug.Log(string.Format("Device name '{0}' has role '{1}'", targetDevice.name, targetDevice.role.ToString()));
+            targetDeviceRight = devices[0];
+            isControllerRightFound = true;
+            Debug.Log(string.Format("Device name '{0}' has role '{1}'", targetDeviceRight.name, targetDeviceRight.role.ToString()));
         }
+        InputDevices.GetDevicesWithCharacteristics(leftControllerCharacteristics, devices);
+        if (devices.Count > 0)
+        {
+            targetDeviceLeft = devices[0];
+            isControllerLeftFound = true;
+        }
+
     }
     public int GetClass()
     {
