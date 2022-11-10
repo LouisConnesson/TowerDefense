@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class Buildings
@@ -16,14 +18,32 @@ public class Magic
 }
 public class ConstructManager : MonoBehaviour
 {
-    public InputDevice targetDeviceRight;
-    public InputDevice targetDeviceLeft;
+    [Header("GameMod Manager")]
+    [SerializeField] private int currentGameModIndex;
+    public GameObject RightHandGameObject;
+    [SerializeField] private TMP_Dropdown dropdown;
+
+    [Header("Class Manager")]
+    [SerializeField] int currentClassIndex;
+    [SerializeField] private GameObject skill;   
+
+    [Header("Construct Manager")]
+    [SerializeField] int currentBuildingIndex;
+    [SerializeField] GameObject currentSpawner;
+    [SerializeField] bool isConstructAvailable;
+    public List<Buildings> classBuildings = new List<Buildings>();
+
+    [Header("Magic Manager")]
+    [SerializeField] int currentMagicIndex;
+    [SerializeField] private bool isCasting = false;
+    [SerializeField] private GameObject magicSpawner;
+    public List<Magic> classMagics = new List<Magic>();
+
+    private InputDevice targetDeviceRight;
+    private InputDevice targetDeviceLeft;
     private bool isControllerRightFound = false;
     private bool isControllerLeftFound = false;
     private float constructCD;
-
-    [SerializeField] int currentClassIndex;
-    [SerializeField] private GameObject skill;
 
     #region general
 
@@ -34,19 +54,20 @@ public class ConstructManager : MonoBehaviour
         constructCD = 3.0f;
         isConstructAvailable = true;
 
-        GetController();
+        GetControllers();
 
     }
     void Update()
     {
+        currentGameModIndex = dropdown.value;
+
         if (!isControllerRightFound || !isControllerLeftFound)
-            GetController();
+            GetControllers();
 
         if (isControllerRightFound && isControllerLeftFound)
         {
-            currentClassIndex = PlayerMenuController.Instance.GetGamemode();
 
-            if (currentClassIndex == 0)
+            if (currentGameModIndex == 0)
             {
                 if (targetDeviceRight.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue) && primaryButtonValue && isConstructAvailable)
                 {
@@ -70,7 +91,7 @@ public class ConstructManager : MonoBehaviour
 
                 }
             }
-            if (currentClassIndex == 1)
+            if (currentGameModIndex == 1)
             {
                 targetDeviceRight.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
                 if (triggerValue > 0.3f)
@@ -78,9 +99,14 @@ public class ConstructManager : MonoBehaviour
                     if (!isCasting)
                     {
                         skill = Instantiate(classMagics[currentClassIndex].magics[currentMagicIndex], magicSpawner.transform);
-                        skill.transform.SetParent(null);
+                        skill.transform.SetParent(RightHandGameObject.transform);
                         isCasting = true;
 
+                    }
+                    if (isCasting && skill)
+                    {
+                        skill.transform.position = RightHandGameObject.transform.position;
+                        skill.transform.rotation = RightHandGameObject.transform.rotation;
                     }
                     Debug.Log(triggerValue);
 
@@ -90,17 +116,17 @@ public class ConstructManager : MonoBehaviour
                     if (isCasting)
                     {
                         isCasting = false;
-                        skill.GetComponent<Rigidbody>().velocity = Vector3.forward*20;
+                        skill.transform.SetParent(null);
+
+                        skill.GetComponent<Rigidbody>().velocity = skill.transform.forward * 20;
                     }
 
                 }
             }
-            
-
 
         }
     }
-    private void GetController()
+    private void GetControllers()
     {
 
         List<UnityEngine.XR.InputDevice> devices = new List<UnityEngine.XR.InputDevice>();
@@ -108,15 +134,10 @@ public class ConstructManager : MonoBehaviour
         InputDeviceCharacteristics leftControllerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
         InputDevices.GetDevicesWithCharacteristics(righControllerCharacteristics, devices);
 
-        foreach (var item in devices)
-        {
-            Debug.Log(item.name + item.characteristics);
-        }
         if (devices.Count > 0)
         {
             targetDeviceRight = devices[0];
             isControllerRightFound = true;
-            Debug.Log(string.Format("Device name '{0}' has role '{1}'", targetDeviceRight.name, targetDeviceRight.role.ToString()));
         }
         InputDevices.GetDevicesWithCharacteristics(leftControllerCharacteristics, devices);
         if (devices.Count > 0)
@@ -125,6 +146,10 @@ public class ConstructManager : MonoBehaviour
             isControllerLeftFound = true;
         }
 
+    }
+    public int GetgameMod()
+    {
+        return currentGameModIndex;
     }
     public int GetClass()
     {
@@ -139,14 +164,7 @@ public class ConstructManager : MonoBehaviour
     #endregion
 
     #region ConstructManager
-    [Header("Construct Manager")]
-    [SerializeField] int currentBuildingIndex;
-    [SerializeField] GameObject currentSpawner;
-    [SerializeField] bool isConstructAvailable;
-
-    public List<Buildings> classBuildings = new List<Buildings>();
-    [SerializeField] private bool isCasting = false;
-    [SerializeField] private GameObject magicSpawner;
+   
 
     public void SetBuilding(int newBuildingIndex)
     {
@@ -190,9 +208,7 @@ public class ConstructManager : MonoBehaviour
     #endregion
 
     #region MagicManager
-    [Header("Magic Manager")]
-    [SerializeField] int currentMagicIndex;
-    public List<Magic> classMagics = new List<Magic>();
+   
     public void SetMagic(int newMagicIndex)
     {
         currentMagicIndex = newMagicIndex;

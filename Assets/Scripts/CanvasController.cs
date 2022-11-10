@@ -48,9 +48,15 @@ public class CanvasController : MonoBehaviour
     }
     public void SetClass(int newClassIndex)
     {
+        GetComponent<ConstructManager>().SetClass(newClassIndex);
+
         Exit();
 
-        GetComponent<ConstructManager>().SetClass(newClassIndex);
+    }
+    public void SetMagic(int newMagicIndex)
+    {
+
+        GetComponent<ConstructManager>().SetMagic(newMagicIndex);
     }
     public void SetBuilding(int newBuildingIndex)
     {
