@@ -5,7 +5,7 @@ using UnityEngine;
 public class WallSkill : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private ParticleSystem magicBallParticles;
+    [SerializeField] private GameObject magicBallParticles;
     [SerializeField] private GameObject explosionParticles;
     [SerializeField] private float lifeDuration;
 
@@ -13,7 +13,7 @@ public class WallSkill : MonoBehaviour
     void Start()
     {
         Debug.Log("Apparition magic ball");
-        magicBallParticles.Play();
+        magicBallParticles.GetComponent<ParticleSystem>().Play();
         explosionParticles.SetActive(false);
         explosionParticles.GetComponent<ParticleSystem>().Stop();
     }
@@ -30,8 +30,14 @@ public class WallSkill : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Rigidbody>().useGravity = false;
+
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+
         Debug.Log("collision");
-        magicBallParticles.Stop();
+        magicBallParticles.GetComponent<ParticleSystem>().Stop();
         explosionParticles.SetActive(true);
         explosionParticles.GetComponent<ParticleSystem>().Play();
 

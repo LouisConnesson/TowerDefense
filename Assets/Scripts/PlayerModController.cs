@@ -18,7 +18,7 @@ public class PlayerModController : MonoBehaviour
     //private InputDevice right;
     void Start()
     {
-        gameModeId = PlayerMenuController.Instance.GetGamemode();
+        gameModeId = GetComponent<ConstructManager>().GetgameMod();
 
     }
 
@@ -26,10 +26,10 @@ public class PlayerModController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameModeId = PlayerMenuController.Instance.GetGamemode();
+        gameModeId = GetComponent<ConstructManager>().GetgameMod();
 
 
-        if(gameModeId == 0)
+        if (gameModeId == 0)
         {
             rightHandConstruct.SetActive(true);
             rightHandBase.SetActive(false);

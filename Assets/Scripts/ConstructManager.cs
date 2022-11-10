@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class Buildings
@@ -16,14 +18,17 @@ public class Magic
 }
 public class ConstructManager : MonoBehaviour
 {
-    public InputDevice targetDeviceRight;
-    public InputDevice targetDeviceLeft;
+    public GameObject RightHandGameObject;
+    private InputDevice targetDeviceRight;
+    private InputDevice targetDeviceLeft;
     private bool isControllerRightFound = false;
     private bool isControllerLeftFound = false;
     private float constructCD;
 
     [SerializeField] int currentClassIndex;
     [SerializeField] private GameObject skill;
+    [SerializeField] private TMP_Dropdown dropdown;
+    [SerializeField] private int gameModeId;
 
     #region general
 
@@ -39,14 +44,15 @@ public class ConstructManager : MonoBehaviour
     }
     void Update()
     {
+        gameModeId = dropdown.value;
+
         if (!isControllerRightFound || !isControllerLeftFound)
             GetController();
 
         if (isControllerRightFound && isControllerLeftFound)
         {
-            currentClassIndex = PlayerMenuController.Instance.GetGamemode();
 
-            if (currentClassIndex == 0)
+            if (gameModeId == 0)
             {
                 if (targetDeviceRight.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue) && primaryButtonValue && isConstructAvailable)
                 {
@@ -70,7 +76,7 @@ public class ConstructManager : MonoBehaviour
 
                 }
             }
-            if (currentClassIndex == 1)
+            if (gameModeId == 1)
             {
                 targetDeviceRight.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
                 if (triggerValue > 0.3f)
@@ -78,9 +84,14 @@ public class ConstructManager : MonoBehaviour
                     if (!isCasting)
                     {
                         skill = Instantiate(classMagics[currentClassIndex].magics[currentMagicIndex], magicSpawner.transform);
-                        skill.transform.SetParent(null);
+                        skill.transform.SetParent(RightHandGameObject.transform);
                         isCasting = true;
 
+                    }
+                    if (isCasting && skill)
+                    {
+                        skill.transform.position = RightHandGameObject.transform.position;
+                        skill.transform.rotation = RightHandGameObject.transform.rotation;
                     }
                     Debug.Log(triggerValue);
 
@@ -90,13 +101,13 @@ public class ConstructManager : MonoBehaviour
                     if (isCasting)
                     {
                         isCasting = false;
-                        skill.GetComponent<Rigidbody>().velocity = Vector3.forward*20;
+                        skill.transform.SetParent(null);
+
+                        skill.GetComponent<Rigidbody>().velocity = skill.transform.forward * 20;
                     }
 
                 }
             }
-            
-
 
         }
     }
@@ -125,6 +136,10 @@ public class ConstructManager : MonoBehaviour
             isControllerLeftFound = true;
         }
 
+    }
+    public int GetgameMod()
+    {
+        return gameModeId;
     }
     public int GetClass()
     {

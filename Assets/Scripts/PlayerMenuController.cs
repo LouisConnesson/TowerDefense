@@ -33,6 +33,7 @@ public class PlayerMenuController : MonoBehaviour
     {
         gameModeId = dropdown.value;
     }
+    
     public int GetGamemode()
     {
         return gameModeId;
