@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: f60b00c9668d7fa40af6c20a649abbea, type: 3}
-  color: {r: 0.6313726, g: 0.039215688, b: 0.18039216, a: 0.9843137}
+  color: {r: 0.81960785, g: 0.40784314, b: 0, a: 0.9843137}
 --- !u!1 &5040952565269599895
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: f60b00c9668d7fa40af6c20a649abbea, type: 3}
-  color: {r: 0.6313726, g: 0.039215688, b: 0.18039216, a: 0.9843137}
+  color: {r: 0.81960785, g: 0.40784314, b: 0, a: 0.9843137}
 --- !u!1 &7145368333201287978
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: f60b00c9668d7fa40af6c20a649abbea, type: 3}
-  color: {r: 0.6320754, g: 0.03875936, b: 0.1797654, a: 0.9843137}
+  color: {r: 0.81960785, g: 0.40784314, b: 0, a: 0.9843137}
 --- !u!1001 &5408828963487334704
 PrefabInstance:
   m_ObjectHideFlags: 0
