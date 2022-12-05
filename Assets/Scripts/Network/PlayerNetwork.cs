@@ -139,7 +139,7 @@ public class PlayerNetwork : NetworkBehaviour
             mobAgent.SetDestination(destination);
     }
 
-    [ClientRpc]
+    [ClientRpc] 
     public void TestClientRPC(ClientRpcParams clientRpcParams)
     {
         Debug.Log("TestServerRPC : " + OwnerClientId + " ; " + clientRpcParams.Send.TargetClientIds);
