@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7618524918022021187}
   - component: {fileID: 5233001029442213930}
   - component: {fileID: 6316350787363157277}
+  - component: {fileID: -8552600785435116516}
+  - component: {fileID: -7520210298518571966}
   m_Layer: 0
   m_Name: 'FireBall '
   m_TagString: Untagged
@@ -79,6 +81,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireBallParticles: {fileID: 2698172156607103318}
   explosionParticles: {fileID: 1794814202575482594}
+--- !u!114 &-8552600785435116516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622737799249803390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &-7520210298518571966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622737799249803390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
 --- !u!1 &2860985312709219246
 GameObject:
   m_ObjectHideFlags: 0
@@ -18678,6 +18722,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2705121868374292245}
     m_Modifications:
+    - target: {fileID: -5347072016174185361, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
+        type: 3}
+      propertyPath: SyncScaleX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5347072016174185361, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
+        type: 3}
+      propertyPath: SyncScaleY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5347072016174185361, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
+        type: 3}
+      propertyPath: SyncScaleZ
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5347072016174185361, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
+        type: 3}
+      propertyPath: SyncRotAngleX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -639713721419775574, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 460818085318949210, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
         type: 3}
       propertyPath: m_Name
