@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
+public class FireBall : NetworkBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private ParticleSystem fireBallParticles;
@@ -20,6 +19,7 @@ public class FireBall : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if (!IsOwner) return;
         fireBallParticles.Stop();
         explosionParticles.Play();
     }
