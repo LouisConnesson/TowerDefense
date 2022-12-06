@@ -17,7 +17,7 @@ public class Magic
 {
     public List<GameObject> magics;
 }
-public class ConstructManager : MonoBehaviour
+public class ConstructManager : MonoBehaviour //NetworkBehaviour
 {
     [Header("GameMod Manager")]
     [SerializeField] private int currentGameModIndex;

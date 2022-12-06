@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private Transform castle;
+    [SerializeField] private GameObject NetworkUI;
 
     private void Start()
     {
@@ -35,5 +36,4 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         return castle.position;
     }
-
 }
