@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInterface : MonoBehaviour
 {
-    [SerializeField] private int Coins = 1000;
+    public int Coins = 1000;
     public GameObject textCoin;
     public GameObject textTimerSkill;
     public GameObject buttonSkill;
@@ -23,32 +23,27 @@ public class PlayerInterface : MonoBehaviour
     public void spawnMob1()
     {
         PlayerPrefs.SetInt("typeOfMob", 0);
-        if (Coins - 50 >= 0)
-            Coins = Coins - 50;
+        PlayerPrefs.SetInt("costOfMob", 50);
     }
     public void spawnMob2()
     {
         PlayerPrefs.SetInt("typeOfMob", 1);
-        if (Coins - 100 >= 0)
-            Coins = Coins - 100;
+        PlayerPrefs.SetInt("costOfMob", 100);
     }
     public void spawnMob3()
     {
         PlayerPrefs.SetInt("typeOfMob", 2);
-        if (Coins - 120 >= 0)
-            Coins = Coins - 120;
+        PlayerPrefs.SetInt("costOfMob", 120);
     }
     public void spawnMob4()
     {
         PlayerPrefs.SetInt("typeOfMob", 3);
-        if (Coins - 350 >= 0)
-            Coins = Coins - 350;
+        PlayerPrefs.SetInt("costOfMob", 350);
     }
     public void spawnMob5()
     {
         PlayerPrefs.SetInt("typeOfMob", 4);
-        if (Coins - 150 >= 0)
-            Coins = Coins - 150;
+        PlayerPrefs.SetInt("costOfMob", 150);
     }
     private void Update()
     {
@@ -56,13 +51,6 @@ public class PlayerInterface : MonoBehaviour
         textTimerSkill.GetComponent<TMPro.TextMeshProUGUI>().text = timer.ToString();
     }
 
-    public void QuitGame()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
-        Application.Quit();
-    }
 
     IEnumerator timerCoins()
     {
