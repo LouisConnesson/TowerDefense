@@ -99,8 +99,11 @@ public class ConstructManager : MonoBehaviour //NetworkBehaviour
                 {
                     if (!isCasting)
                     {
-                        skill = Instantiate(classMagics[currentClassIndex].magics[currentMagicIndex], magicSpawner.transform); //TODO
-                        skill.transform.SetParent(RightHandGameObject.transform);
+                        skill = Instantiate(classMagics[currentClassIndex].magics[currentMagicIndex]); //TODO
+                        //SPAWN SKILL ON NETWORK
+                        skill.GetComponent<NetworkObject>().Spawn(true);
+
+                        //skill.transform.SetParent(RightHandGameObject.transform);
                         isCasting = true;
 
                     }
@@ -108,8 +111,6 @@ public class ConstructManager : MonoBehaviour //NetworkBehaviour
                     {
                         skill.transform.position = RightHandGameObject.transform.position;
                         skill.transform.rotation = RightHandGameObject.transform.rotation;
-                        //SPAWN SKILL ON NETWORK
-                        skill.GetComponent<NetworkObject>().Spawn(true);
                     }
                     Debug.Log(triggerValue);
 
