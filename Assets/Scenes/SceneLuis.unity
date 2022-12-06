@@ -2712,6 +2712,7 @@ MonoBehaviour:
   - {fileID: 2041852069}
   - {fileID: 1752687949}
   castle: {fileID: 1471464157}
+  NetworkUI: {fileID: 0}
 --- !u!4 &223430455
 Transform:
   m_ObjectHideFlags: 0
@@ -8959,7 +8960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &891755372
 AudioListener:
   m_ObjectHideFlags: 0
@@ -14234,24 +14235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AgentTypeID: -334000983
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.016666668
-  m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
-  m_LastPosition: {x: 0, y: 0.26, z: 0}
-  m_LastRotation: {x: -0, y: -0, z: -0, w: 1}
 --- !u!1001 &1331923350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17196,6 +17179,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5023421806942959990, guid: 7cb2b7d361bccec40b7f5b7722171d13,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5023421806942959995, guid: 7cb2b7d361bccec40b7f5b7722171d13,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17209,7 +17197,7 @@ PrefabInstance:
     - target: {fileID: 5023421807331411314, guid: 7cb2b7d361bccec40b7f5b7722171d13,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5023421807331411314, guid: 7cb2b7d361bccec40b7f5b7722171d13,
         type: 3}
