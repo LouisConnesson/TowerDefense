@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.UI;
 using TMPro;
+using Unity.Netcode;
 
 [System.Serializable]
 public class Buildings
