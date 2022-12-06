@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.UI;
 using TMPro;
+using Unity.Netcode;
 
 [System.Serializable]
 public class Buildings
@@ -16,7 +17,7 @@ public class Magic
 {
     public List<GameObject> magics;
 }
-public class ConstructManager : MonoBehaviour
+public class ConstructManager : MonoBehaviour //NetworkBehaviour
 {
     [Header("GameMod Manager")]
     [SerializeField] private int currentGameModIndex;
@@ -98,8 +99,11 @@ public class ConstructManager : MonoBehaviour
                 {
                     if (!isCasting)
                     {
-                        skill = Instantiate(classMagics[currentClassIndex].magics[currentMagicIndex], magicSpawner.transform);
-                        skill.transform.SetParent(RightHandGameObject.transform);
+                        skill = Instantiate(classMagics[currentClassIndex].magics[currentMagicIndex]); //TODO
+                        //SPAWN SKILL ON NETWORK
+                        skill.GetComponent<NetworkObject>().Spawn(true);
+
+                        //skill.transform.SetParent(RightHandGameObject.transform);
                         isCasting = true;
 
                     }
@@ -192,7 +196,7 @@ public class ConstructManager : MonoBehaviour
         {
             Debug.Log("Construct building 2");
 
-            GameObject newObj = Instantiate(classBuildings[currentClassIndex].buildings[currentBuildingIndex],currentSpawner.transform.position,currentSpawner.transform.rotation);
+            GameObject newObj = Instantiate(classBuildings[currentClassIndex].buildings[currentBuildingIndex],currentSpawner.transform.position,currentSpawner.transform.rotation); //TODO
             newObj.transform.parent = currentSpawner.transform;
         }
     }
