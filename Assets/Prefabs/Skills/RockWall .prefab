@@ -18604,6 +18604,8 @@ GameObject:
   - component: {fileID: 8756605378315307416}
   - component: {fileID: 8756605378315307417}
   - component: {fileID: 8756605378315307418}
+  - component: {fileID: 3479686605799298981}
+  - component: {fileID: -2354363082496548944}
   m_Layer: 0
   m_Name: 'RockWall '
   m_TagString: Untagged
@@ -18672,6 +18674,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25179884, y: 0.22213623, z: 0.3071561}
   m_Center: {x: 0.040037796, y: -0.006507531, z: -0.077847324}
+--- !u!114 &3479686605799298981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756605378315307420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &-2354363082496548944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756605378315307420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
 --- !u!1001 &6760452054060307577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18679,6 +18723,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8756605378315307419}
     m_Modifications:
+    - target: {fileID: -8437606250141164175, guid: 50dfd53c87d310849aa5df80ed721813,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
+    - target: {fileID: -2902478040556347975, guid: 50dfd53c87d310849aa5df80ed721813,
+        type: 3}
+      propertyPath: SyncScaleX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2902478040556347975, guid: 50dfd53c87d310849aa5df80ed721813,
+        type: 3}
+      propertyPath: SyncScaleY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2902478040556347975, guid: 50dfd53c87d310849aa5df80ed721813,
+        type: 3}
+      propertyPath: SyncScaleZ
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2902478040556347975, guid: 50dfd53c87d310849aa5df80ed721813,
+        type: 3}
+      propertyPath: SyncRotAngleX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1672181623104776, guid: 50dfd53c87d310849aa5df80ed721813, type: 3}
       propertyPath: m_Name
       value: FX_ShardRock_Shooting_01
@@ -18869,3 +18938,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5727427, y: 1.5630102, z: 5.0390654}
   m_Center: {x: 0.04742658, y: 0.3383305, z: 2.3967013}
+--- !u!114 &3626737317602659525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761032807083290993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
