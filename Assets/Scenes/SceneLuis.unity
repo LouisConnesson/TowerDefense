@@ -2995,10 +2995,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProtocolType: 0
+  m_ProtocolType: 1
   m_MaxPacketQueueSize: 128
   m_MaxPayloadSize: 6144
-  m_MaxSendQueueSize: 98304
   m_HeartbeatTimeoutMS: 500
   m_ConnectTimeoutMS: 1000
   m_MaxConnectAttempts: 60
@@ -3107,7 +3106,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270572455}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5806,13 +5805,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 569566515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f762f22df646b9479040322f7b7e6c4, type: 3}
+  m_Script: {fileID: 11500000, guid: b9680ccaed951ae4da7020e4812799fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ipAddressText: {fileID: 163620534}
-  ip: {fileID: 603875371}
-  ipAddress: 
-  transport: {fileID: 270572456}
+  joinCodeText: {fileID: 163620534}
+  joinCodeTextField: {fileID: 603875371}
 --- !u!1001 &582800968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13479,8 +13476,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 569566517}
-        m_TargetAssemblyTypeName: NetworkUI, Assembly-CSharp
-        m_MethodName: StartHost
+        m_TargetAssemblyTypeName: RelayManager, Assembly-CSharp
+        m_MethodName: CreateRelay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21190,8 +21187,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 569566517}
-        m_TargetAssemblyTypeName: NetworkUI, Assembly-CSharp
-        m_MethodName: StartClient
+        m_TargetAssemblyTypeName: RelayManager, Assembly-CSharp
+        m_MethodName: JoinRelay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
