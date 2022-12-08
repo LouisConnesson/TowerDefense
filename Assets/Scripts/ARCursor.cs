@@ -74,7 +74,7 @@ public class ARCursor : MonoBehaviour
                     {
                         GameObject.Instantiate(Map, hits[0].pose.position + new Vector3(-2.562f, 0, -2.223f), hits[0].pose.rotation);
 
-                        ARPlaneObject.GetComponent<ARPlaneManager>().requestedDetectionMode = 0;
+                        //ARPlaneObject.GetComponent<ARPlaneManager>().requestedDetectionMode = 0;
 
                         MapSpawned = true;
                     }
