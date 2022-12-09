@@ -11,7 +11,10 @@ public class ARCursor : MonoBehaviour
     public GameObject cursorChildObject;
     public List<GameObject> mobToPlace;
     public ARRaycastManager raycastManager;
-    [SerializeField]  public GameObject ARPlaneObject;
+    private bool mapspawned;
+    public PlayerInterface m_PlayerInterface;
+
+    [SerializeField] private GameObject Terrain;
 
     public Camera arCam;
 
@@ -37,7 +40,15 @@ public class ARCursor : MonoBehaviour
         {
             if (useCursor)
             {
-                GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], transform.position, transform.rotation);
+                if (m_PlayerInterface.Coins - PlayerPrefs.GetInt("costOfMob") >= 0)
+                {
+                    m_PlayerInterface.Coins = m_PlayerInterface.Coins - PlayerPrefs.GetInt("costOfMob");
+                    GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], transform.position, transform.rotation);
+                }
+                else
+                    Debug.Log("Not Enough Money !");
+
+                
             }
             else
             {
@@ -63,7 +74,8 @@ public class ARCursor : MonoBehaviour
                     {
                         GameObject.Instantiate(Map, hits[0].pose.position + new Vector3(-2.562f, 0, -2.223f), hits[0].pose.rotation);
 
-                        ARPlaneObject.GetComponent<ARPlaneManager>().requestedDetectionMode = 0;
+
+                       // ARPlaneObject.GetComponent<ARPlaneManager>().requestedDetectionMode = 0;
 
                         MapSpawned = true;
                     }

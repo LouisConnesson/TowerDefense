@@ -2712,7 +2712,9 @@ MonoBehaviour:
   - {fileID: 2041852069}
   - {fileID: 1752687949}
   castle: {fileID: 1471464157}
-  NetworkUI: {fileID: 0}
+  NetworkUI: {fileID: 569566515}
+  XROrigin: {fileID: 1540044640}
+  classicCamera: {fileID: 891755373}
 --- !u!4 &223430455
 Transform:
   m_ObjectHideFlags: 0
@@ -2720,13 +2722,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223430453}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 233.76077, y: 115.51163, z: 151.74272}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 234.58046, y: 114.85763, z: 153.46371}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1540044639}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &228490010
 PrefabInstance:
@@ -2995,10 +2997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProtocolType: 0
+  m_ProtocolType: 1
   m_MaxPacketQueueSize: 128
   m_MaxPayloadSize: 6144
-  m_MaxSendQueueSize: 98304
   m_HeartbeatTimeoutMS: 500
   m_ConnectTimeoutMS: 1000
   m_MaxConnectAttempts: 60
@@ -3107,7 +3108,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270572455}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5600,7 +5601,7 @@ Transform:
   - {fileID: 1503923098}
   - {fileID: 400303638}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &552620788
 PrefabInstance:
@@ -5806,13 +5807,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 569566515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f762f22df646b9479040322f7b7e6c4, type: 3}
+  m_Script: {fileID: 11500000, guid: b9680ccaed951ae4da7020e4812799fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ipAddressText: {fileID: 163620534}
-  ip: {fileID: 603875371}
-  ipAddress: 
-  transport: {fileID: 270572456}
+  joinCodeText: {fileID: 163620534}
+  joinCodeTextField: {fileID: 603875371}
 --- !u!1001 &582800968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8990,7 +8989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &891755372
 AudioListener:
   m_ObjectHideFlags: 0
@@ -13479,8 +13478,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 569566517}
-        m_TargetAssemblyTypeName: NetworkUI, Assembly-CSharp
-        m_MethodName: StartHost
+        m_TargetAssemblyTypeName: RelayManager, Assembly-CSharp
+        m_MethodName: CreateRelay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16409,7 +16408,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1487673231
 PrefabInstance:
@@ -17252,7 +17251,7 @@ PrefabInstance:
     - target: {fileID: 5023421807331411314, guid: 7cb2b7d361bccec40b7f5b7722171d13,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5023421807331411314, guid: 7cb2b7d361bccec40b7f5b7722171d13,
         type: 3}
@@ -17356,6 +17355,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cb2b7d361bccec40b7f5b7722171d13, type: 3}
+--- !u!4 &1540044639 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5023421807331411314, guid: 7cb2b7d361bccec40b7f5b7722171d13,
+    type: 3}
+  m_PrefabInstance: {fileID: 1540044638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1540044640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5023421808271987873, guid: 7cb2b7d361bccec40b7f5b7722171d13,
+    type: 3}
+  m_PrefabInstance: {fileID: 1540044638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1540817248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21190,8 +21201,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 569566517}
-        m_TargetAssemblyTypeName: NetworkUI, Assembly-CSharp
-        m_MethodName: StartClient
+        m_TargetAssemblyTypeName: RelayManager, Assembly-CSharp
+        m_MethodName: JoinRelay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

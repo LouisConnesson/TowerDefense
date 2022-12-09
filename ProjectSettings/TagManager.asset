@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - ConstructBullet
   - Herse
+  - Canvas
   layers:
   - Default
   - TransparentFX

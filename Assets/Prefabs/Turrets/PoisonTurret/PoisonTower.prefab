@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 6523129442624476389}
   - component: {fileID: 5235275956159561418}
   m_Layer: 8
-  m_Name: IcyTower
+  m_Name: PoisonTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
