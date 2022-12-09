@@ -2714,6 +2714,12 @@ MonoBehaviour:
   castle: {fileID: 1471464157}
   NetworkUI: {fileID: 569566515}
   XROrigin: {fileID: 1540044640}
+  mobList:
+  - {fileID: 1907380202062407536, guid: e56dbb0074d81f04c8a59f5ccd321170, type: 3}
+  - {fileID: 9195273066040876171, guid: 2e1e22b7b34a43b43ba428adaf113a79, type: 3}
+  - {fileID: 6026338978298608752, guid: 2adf41091acfafd4ba2bdeb5bcff3a12, type: 3}
+  - {fileID: 9068590295730445962, guid: c0c59509c4e5e9449a57b837b0e55018, type: 3}
+  - {fileID: 3413270932785118550, guid: a2bcb7657e43c714684f7095c5949b42, type: 3}
   classicCamera: {fileID: 891755373}
 --- !u!4 &223430455
 Transform:
@@ -3082,6 +3088,36 @@ MonoBehaviour:
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
       Prefab: {fileID: 5893794353290262907, guid: 94cca1a399ca3f544a841635aa9ccc5f,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1239528509626039754, guid: e56dbb0074d81f04c8a59f5ccd321170,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 8419475715487237681, guid: 2e1e22b7b34a43b43ba428adaf113a79,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 6406946561064199882, guid: 2adf41091acfafd4ba2bdeb5bcff3a12,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 8543832615111689264, guid: c0c59509c4e5e9449a57b837b0e55018,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 2600142108193122284, guid: a2bcb7657e43c714684f7095c5949b42,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
@@ -7427,7 +7463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763610454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.445, y: 0.147, z: -1.016}
+  m_LocalPosition: {x: -2.445, y: 0.1413, z: -1.016}
   m_LocalScale: {x: 0.0098438, y: 0.0098438, z: 0.0098438}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18999,7 +19035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752687945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2213, y: 0.1408, z: -2.0527}
+  m_LocalPosition: {x: 2.2594, y: 0.1386, z: -2.0716}
   m_LocalScale: {x: 0.010728001, y: 0.010728001, z: 0.010728001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21717,7 +21753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041852065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.143, y: 0.1435, z: 2.634}
+  m_LocalPosition: {x: 0.143, y: 0.1395, z: 2.634}
   m_LocalScale: {x: 0.012551211, y: 0.012551211, z: 0.012551211}
   m_ConstrainProportionsScale: 0
   m_Children: []

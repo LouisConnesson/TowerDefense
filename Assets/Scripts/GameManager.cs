@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     [SerializeField] private Transform castle;
     [SerializeField] private GameObject NetworkUI;
     [SerializeField] private GameObject XROrigin;
+    [SerializeField] private List<Transform> mobList;
 
     [SerializeField] private Camera classicCamera;
 
@@ -54,5 +55,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public Vector3 GetCastlePosition()
     {
         return castle.position;
+    }
+
+    public Transform GetMobSelected()
+    {
+        return mobList[Random.Range(0, mobList.Count)];
     }
 }
