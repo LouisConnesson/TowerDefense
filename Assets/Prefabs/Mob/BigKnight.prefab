@@ -173,9 +173,10 @@ GameObject:
   - component: {fileID: 2190460623676487668}
   - component: {fileID: 2190460623676487671}
   - component: {fileID: 2190460623676487670}
+  - component: {fileID: 9041489207117398769}
   m_Layer: 0
   m_Name: BigKnight
-  m_TagString: Untagged
+  m_TagString: mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,6 +248,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.6631565, y: 9.214073, z: 2.0724678}
   m_Center: {x: 0.11447638, y: 4.4960146, z: -0.17804384}
+--- !u!114 &9041489207117398769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526092420092521807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50cbefcfd91a094396ff5d75c576d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1600695197823984216
 GameObject:
   m_ObjectHideFlags: 0

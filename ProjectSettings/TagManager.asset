@@ -9,6 +9,7 @@ TagManager:
   - ConstructBullet
   - Herse
   - Canvas
+  - mob
   layers:
   - Default
   - TransparentFX
