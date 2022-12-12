@@ -8,14 +8,14 @@ using UnityEngine.EventSystems;
 
 public class ARCursor : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI textComponent;
     public GameObject cursorChildObject;
     public List<GameObject> mobToPlace;
     public ARRaycastManager raycastManager;
     [SerializeField] public GameObject ARPlaneObject;
     [SerializeField] private PlayerInterface m_PlayerInterface;
     [SerializeField] private List<GameObject> UIComponents;
-    [SerializeField] public GameObject MobCursor;
+    [SerializeField] private GameObject MobCursorPrefab;
+    private GameObject MobCursor;
 
     public Camera arCam;
 
@@ -26,6 +26,9 @@ public class ARCursor : MonoBehaviour
 
     void Start()
     {
+        Screen.sleepTimeout = (int)0f;
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         cursorChildObject.SetActive(useCursor);
         MapSpawned = false;
         MobCursor.SetActive(false);
@@ -106,7 +109,8 @@ public class ARCursor : MonoBehaviour
         if(!MapSpawned)
         {
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
-            raycastManager.Raycast(new Vector2 (arCam.scaledPixelWidth / 2, arCam.scaledPixelHeight / 2), hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+            raycastManager.Raycast(arCam.ViewportToScreenPoint(new Vector2(0.5f, 0.5f)), hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+            //raycastManager.Raycast(new Vector2 (arCam.scaledPixelWidth / 2, arCam.scaledPixelHeight / 2), hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
             if (hits.Count > 0)
             {
                 GameObject.Instantiate(Map, hits[0].pose.position, hits[0].pose.rotation);
@@ -118,6 +122,9 @@ public class ARCursor : MonoBehaviour
                     UIComponent.SetActive(true);
                 }
                 UIComponents[0].SetActive(false);
+                MobCursor = GameObject.Instantiate(MobCursorPrefab, hits[0].pose.position, hits[0].pose.rotation);
+                cursorChildObject.SetActive(false);
+
             }
         }
     }
@@ -125,7 +132,8 @@ public class ARCursor : MonoBehaviour
     public void SpawnMob(int ID)
     {
         RaycastHit hit;
-        Ray ray = arCam.ScreenPointToRay(Input.mousePosition);
+        Ray ray = arCam.ScreenPointToRay(arCam.ViewportToScreenPoint(new Vector2(0.5f, 0.5f)));
+        //Ray ray = arCam.ScreenPointToRay(new Vector2(arCam.scaledPixelWidth / 2, arCam.scaledPixelHeight / 2));
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider.gameObject.tag == "Terrain")
@@ -133,7 +141,7 @@ public class ARCursor : MonoBehaviour
                 if (m_PlayerInterface.Coins - PlayerPrefs.GetInt("costOfMob") >= 0)
                 {
                     m_PlayerInterface.Coins = m_PlayerInterface.Coins - PlayerPrefs.GetInt("costOfMob");
-                    GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], transform.position, transform.rotation);
+                    GameObject.Instantiate(mobToPlace[PlayerPrefs.GetInt("typeOfMob")], hit.point, hit.transform.rotation);
                 }
                 else
                     Debug.Log("Not Enough Money !");
@@ -143,14 +151,30 @@ public class ARCursor : MonoBehaviour
 
     void UpdateCursor()
     {
-        Vector2 screenPosition = arCam.ViewportToScreenPoint(new Vector2(0.5f, 0.5f));
-        List<ARRaycastHit> hits = new List<ARRaycastHit>();
-        raycastManager.Raycast(screenPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
-
-        if (hits.Count > 0)
+        if (!MapSpawned)
         {
-            transform.position = hits[0].pose.position;
-            transform.rotation = hits[0].pose.rotation;
+            Vector2 screenPosition = arCam.ViewportToScreenPoint(new Vector2(0.5f, 0.5f));
+            List<ARRaycastHit> hits = new List<ARRaycastHit>();
+            raycastManager.Raycast(screenPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+
+            if (hits.Count > 0)
+            {
+                transform.position = hits[0].pose.position;
+                transform.rotation = hits[0].pose.rotation;
+            }
+        }
+        else
+        {
+            RaycastHit hit;
+            Ray ray = arCam.ScreenPointToRay(arCam.ViewportToScreenPoint(new Vector2(0.5f, 0.5f)));
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject.tag == "Terrain")
+                {
+                    MobCursor.transform.position = hit.point;
+                    MobCursor.transform.eulerAngles = hit.normal;
+                }
+            }
         }
     }
 }
