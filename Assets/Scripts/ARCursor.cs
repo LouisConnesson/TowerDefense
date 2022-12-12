@@ -40,7 +40,7 @@ public class ARCursor : MonoBehaviour
         {
             UpdateCursor();
         }
-        if (MapSpawned)
+        /*if (MapSpawned)
         {
             RaycastHit hit;
             Ray ray = arCam.ScreenPointToRay(Input.mousePosition);
@@ -51,7 +51,7 @@ public class ARCursor : MonoBehaviour
                     GameObject.Instantiate(MobCursor, transform.position, transform.rotation);
                 }
             }
-        }
+        }*/
         /*if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             if (useCursor)
