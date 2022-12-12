@@ -133,7 +133,6 @@ public class ARCursor : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = arCam.ScreenPointToRay(arCam.ViewportToScreenPoint(new Vector2(0.5f, 0.5f)));
-        //Ray ray = arCam.ScreenPointToRay(new Vector2(arCam.scaledPixelWidth / 2, arCam.scaledPixelHeight / 2));
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider.gameObject.tag == "Terrain")
