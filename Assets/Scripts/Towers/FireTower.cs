@@ -14,8 +14,8 @@ public class FireTower : MonoBehaviour
 
     [SerializeField] private bool isShooting = false;
     [SerializeField] private float timeBetweenShoot = 0.5f;
-    [SerializeField] private float bulletDamages = 1f;
-    [SerializeField] private float bulletSpeed = 30f;
+    public float bulletDamages;
+    public float bulletSpeed;
     [SerializeField] private bool isMaterialized = false;
     void Start()
     {
@@ -43,7 +43,13 @@ public class FireTower : MonoBehaviour
                 particleLauncher.Stop();
                 CancelInvoke();
             }
-
+            for(int i =0;i< ennemiesList.Count; i++)
+            {
+                if(ennemiesList[i] == null)
+                {
+                    ennemiesList.Remove(ennemiesList[i]);
+                }
+            }
             if (ennemiesList.Count > 0)
             {
                 GameObject ennemy = ennemiesList[0];

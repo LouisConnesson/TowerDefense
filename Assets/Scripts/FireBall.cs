@@ -41,7 +41,7 @@ public class FireBall : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "mob")
+        if (other.gameObject.tag == "Ennemy" && other.gameObject.GetComponent<MobLife>())
         {
             Debug.Log("mob detected");
 
