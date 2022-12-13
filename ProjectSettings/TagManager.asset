@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - ConstructBullet
   - Herse
+  - Canvas
+  - mob
   layers:
   - Default
   - TransparentFX

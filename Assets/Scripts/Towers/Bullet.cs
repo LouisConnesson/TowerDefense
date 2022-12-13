@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    private float damage = 0;
+    private float damages = 0;
     [SerializeField]
     private float waitTime = 5f;
     private void Start()
@@ -14,11 +14,11 @@ public class Bullet : MonoBehaviour
     }
     public void setDamage(float newDamages)
     {
-        damage = newDamages;
+        damages = newDamages;
     }
     public float GetBulletDamage()
     {
-        return damage;
+        return damages;
     }
     private IEnumerator DestroyBullet()
     {
@@ -26,5 +26,14 @@ public class Bullet : MonoBehaviour
         Debug.Log("Destruction");
         Destroy(gameObject);
     }
-    
+  
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Ennemy" && other.gameObject.GetComponent<MobLife>())
+        {
+            Debug.Log("mob detected trigger");
+
+            other.gameObject.GetComponent<MobLife>().TakeDamage(damages);
+        }
+    }
 }

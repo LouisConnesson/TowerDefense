@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
@@ -12,10 +13,28 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private Transform castle;
     [SerializeField] private GameObject NetworkUI;
+    [SerializeField] private GameObject XROrigin;
+
+    [SerializeField] private Camera classicCamera;
 
     private void Start()
     {
         StartTime();
+
+        var inputDevices = new List<UnityEngine.XR.InputDevice>();
+        InputDevices.GetDevices(inputDevices);
+
+        if (inputDevices.Count > 0)
+        {
+            XROrigin.SetActive(true);
+            classicCamera.gameObject.SetActive(false);
+        }
+        else
+        {
+            XROrigin.SetActive(false);
+            classicCamera.gameObject.SetActive(true);
+        }
+
     }
 
     public void StartTime()
