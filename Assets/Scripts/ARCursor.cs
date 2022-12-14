@@ -31,7 +31,7 @@ public class ARCursor : MonoBehaviour
 
         cursorChildObject.SetActive(useCursor);
         MapSpawned = false;
-        MobCursor.SetActive(false);
+        //MobCursor.SetActive(false);
     }
 
     void Update()
