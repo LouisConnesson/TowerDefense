@@ -116,7 +116,7 @@ public class PlayerNetwork : NetworkBehaviour
         //Debug.Log("TestServerRPC : " + OwnerClientId + " ; " + serverRpcParams.Receive.SenderClientId);
 
         //SPAWN MOB AND INIT HIS INITIAL POSITION
-        Transform spawnedObjectTransform = Instantiate(mobPrefab, spawnPosition, Quaternion.identity, transform.parent);
+        Transform spawnedObjectTransform = Instantiate(GameManager.Instance.GetMobSelected(), spawnPosition, Quaternion.identity, transform.parent);
         spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
 
         //INIT HIS DESTINATION

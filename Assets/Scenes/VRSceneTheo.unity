@@ -2391,6 +2391,7 @@ MonoBehaviour:
   - "Pour cela dirigez vous dans 'classe' et choisissez 'constructeur'. Vous pouvez
     ensuite choisir votre sort dans la fen\xEAtre 'skills', utilisez la gachette
     afin de le lancer"
+  - Votre ennemi est maintenant mort ! Passons au tutoriel suivant
 --- !u!4 &533195639
 Transform:
   m_ObjectHideFlags: 0
@@ -3999,21 +4000,11 @@ MonoBehaviour:
   tutorialIndex: 1
   tutorialText: {fileID: 1832813567}
   TutorialText:
-  - "Bienvenu dans le didacticiel afin de vous apprendre \xE0 utiliser toutes les
-    fonctionnalit\xE9s."
-  - "Pour la premi\xE8re \xE9tape, vous allez essayer de construire une tour aifn
-    de d\xE9tuitre l'ennemi situ\xE9 devant vous"
-  - "Pour cela, cliquez sur le bouton 'cons' situ\xE9 sur l'interface attach\xE9e
-    a votre main gauche puis s\xE9lectionnez le genre de tour que vous souhaitez
-    construire"
-  - Maintenant, visez le centre de la plateforme jaune puis pressez le bouton A de
-    votre manette droite
-  - "Votre premier ennemi est maintenant vaincu ! Passons \xE0 la magie"
-  - "Les ennemis sont maintenant plus r\xE9sistants, afin de les empecher d'avancer
-    il va falloir les rallentir"
-  - "Pour cela dirigez vous dans 'classe' et choisissez 'constructeur'. Vous pouvez
-    ensuite choisir votre sort dans la fen\xEAtre 'skills', utilisez la gachette
-    afin de le lancer"
+  - "Passons \xE0 la magie d'attaque, dirigez vous dans 'classe' et choisissez mage.
+    Dans 'skills' avez le choix entre plusieurs type de boules magiques, tuez l'ennemi
+    en testant plusieurs type"
+  - "Le tutoriel est maintenant termin\xE9 ! vous pouvez commencer la partie \xE0
+    tout moment"
 --- !u!4 &1016926549
 Transform:
   m_ObjectHideFlags: 0

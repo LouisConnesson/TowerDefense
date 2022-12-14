@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
-
+using UnityEngine;
+using UnityEngine.AI;
 
 public class MobManager : NetworkBehaviour
 {
@@ -28,5 +29,11 @@ public class MobManager : NetworkBehaviour
             //damaging the fence collision
 
         }
+    }
+
+    public void attackHarrow()
+    {
+        GetComponent<NavMeshAgent>().speed = 0;
+        GetComponent<Animator>().SetBool("IsAttacking",  true );
     }
 }
