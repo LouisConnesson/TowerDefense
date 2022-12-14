@@ -2281,7 +2281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &226562262
 Transform:
   m_ObjectHideFlags: 0
@@ -9442,7 +9442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &824626906
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19467,6 +19467,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1613621756}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1613814325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613814326}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1613814326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613814325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.151, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1621811346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21795,6 +21826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1946733339}
+  - component: {fileID: 1946733340}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -21817,6 +21849,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1946733340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946733338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ea3bd7d509c6a4191c159741994633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
+  castle: {fileID: 0}
+  NetworkUI: {fileID: 579834070}
+  XROrigin: {fileID: 1613814325}
+  mobList:
+  - {fileID: 1907380202062407536, guid: e56dbb0074d81f04c8a59f5ccd321170, type: 3}
+  - {fileID: 6026338978298608752, guid: 2adf41091acfafd4ba2bdeb5bcff3a12, type: 3}
+  - {fileID: 9195273066040876171, guid: 2e1e22b7b34a43b43ba428adaf113a79, type: 3}
+  - {fileID: 3413270932785118550, guid: a2bcb7657e43c714684f7095c5949b42, type: 3}
+  - {fileID: 9068590295730445962, guid: c0c59509c4e5e9449a57b837b0e55018, type: 3}
+  classicCamera: {fileID: 1520184779}
 --- !u!1001 &1949880999
 PrefabInstance:
   m_ObjectHideFlags: 0
