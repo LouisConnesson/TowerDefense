@@ -715,11 +715,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 2
-  cloudProjectId: 
+  cloudProjectId: c639f462-ec40-41a2-a10a-5a30a73cfd07
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: TowerDefensePST
+  organizationId: luisleboullenger
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
