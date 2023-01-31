@@ -61,6 +61,7 @@ public class RelayManager : MonoBehaviour
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartClient();
+            gameObject.SetActive(false);
         }
         catch (RelayServiceException e)
         {
