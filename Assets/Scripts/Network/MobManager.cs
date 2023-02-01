@@ -6,34 +6,61 @@ using UnityEngine.AI;
 
 public class MobManager : NetworkBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    bool isAttacking = false;
+    float speed;
+
+    private void Start()
     {
-        
+        speed = GetComponent<NavMeshAgent>().speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void attackHarrow(Harrow harrow)
     {
-        
-    }
-
-    private void OnCollisionEnter(UnityEngine.Collision collision)
-    {
-        if (collision.transform.tag == "Herse")
+        if (!OnClientModif())
+            return;
+        if (!isAttacking)
         {
-            //mob stop walking
-
-            //mob is beating
-
-            //damaging the fence collision
-
+            isAttacking = true;
+            GetComponent<NavMeshAgent>().speed = 0;
+            GetComponent<Animator>().SetBool("IsAttacking", true);
+            StartCoroutine(attack(harrow));
         }
     }
 
-    public void attackHarrow()
+    public void stopAttack(Harrow harrow)
     {
-        GetComponent<NavMeshAgent>().speed = 0;
-        GetComponent<Animator>().SetBool("IsAttacking",  true );
+        if (!OnClientModif())
+            return;
+
+        if (!harrow)
+        {
+            isAttacking = false;
+            GetComponent<NavMeshAgent>().speed = speed;
+            GetComponent<Animator>().SetBool("IsAttacking", false);
+        }
+    }
+
+    IEnumerator attack(Harrow harrow)
+    {
+        while (isAttacking && harrow)
+        {
+            if (!harrow.takeDamage(1))
+            {
+                Debug.LogWarning(harrow.GetComponent<Harrow>().Health);
+                stopAttack(harrow);
+                if (harrow)
+                    Destroy(harrow.gameObject);
+            }
+            yield return new WaitForSeconds(1);
+        }
+        stopAttack(harrow);
+    }
+
+    private bool OnClientModif()
+    {
+        if (IsHost && IsOwner)
+            return true;
+        else
+            return false;
     }
 }
