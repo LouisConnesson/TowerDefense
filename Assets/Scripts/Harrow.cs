@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class Harrow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] public int Health = 10;
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="damages">damages deal to the harrow by the mob attacking</param>
+    /// <returns> true if the harrow still have health however false</returns>
+    public bool takeDamage(int damages)
     {
-        
-    }
+        Health -= damages;
+        if (Health <= 0)
+        {
+            return false;
+        }
+        return true;
+    }    
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.transform.name);
-        collision.transform.GetComponent<MobManager>().attackHarrow();
+        if (collision.transform.tag == "mob")
+        {
+            Debug.Log(collision.transform.name);
+            collision.transform.GetComponent<MobManager>().attackHarrow(this);
+        }
     }
 }

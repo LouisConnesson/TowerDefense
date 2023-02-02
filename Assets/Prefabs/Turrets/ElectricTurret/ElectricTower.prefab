@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &991993070594072767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4794720726939303212}
+  m_Layer: 0
+  m_Name: BulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4794720726939303212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991993070594072767}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.132, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5040952565269599894}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3734120109706887174
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +263,7 @@ Transform:
   - {fileID: 5519931231350597339}
   - {fileID: 8242674451501506524}
   - {fileID: 8941746640682978747}
+  - {fileID: 4794720726939303212}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -263,11 +295,11 @@ MonoBehaviour:
   ennemiesList: []
   bulletPrefab: {fileID: 2684984797790714949, guid: 73d748c773f38b64f8016d7715f7d897,
     type: 3}
-  bulletSpawner: {fileID: 5175036851740540001}
+  bulletSpawner: {fileID: 991993070594072767}
   particleLauncher: {fileID: 8119730520044130328}
   isShooting: 0
-  timeBetweenShoot: 0.5
-  bulletDamages: 1
+  timeBetweenShoot: 2.5
+  bulletDamages: 100
   bulletSpeed: 30
   isMaterialized: 0
 --- !u!114 &6523129442624476389
@@ -288,7 +320,7 @@ MonoBehaviour:
   - {fileID: 4416377779126093347}
   - {fileID: 5640403928046798159}
   - {fileID: 7145368333201287978}
-  - {fileID: 5175036851740540001}
+  - {fileID: 0}
   materials: []
   dissolve: 0
 --- !u!65 &5235275956159561418
@@ -728,12 +760,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c92bf4f92efedb744ac7f1311f79df63, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5004954d8de36a4b9f3df60640fc9c0, type: 3}
---- !u!1 &5175036851740540001 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5004954d8de36a4b9f3df60640fc9c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 5408828963487334704}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5519931231350597339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c5004954d8de36a4b9f3df60640fc9c0,
