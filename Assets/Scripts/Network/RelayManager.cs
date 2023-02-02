@@ -14,7 +14,7 @@ public class RelayManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI joinCodeText;
     [SerializeField] TMP_InputField joinCodeTextField;
-
+    [SerializeField] private bool displayUI = true;
     private async void Start()
     {
 
@@ -41,6 +41,11 @@ public class RelayManager : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartHost();
             joinCodeText.text = joinCode;
+            if (!displayUI)
+            {
+                gameObject.SetActive(false);
+
+            }
         }
         catch (RelayServiceException e)
         {

@@ -101,7 +101,7 @@ public class ConstructManager : MonoBehaviour //NetworkBehaviour
                     {
                         skill = Instantiate(classMagics[currentClassIndex].magics[currentMagicIndex]); //TODO
                         //SPAWN SKILL ON NETWORK
-                        skill.GetComponent<NetworkObject>().Spawn(true);
+                        //skill.GetComponent<NetworkObject>().Spawn(true);
 
                         //skill.transform.SetParent(RightHandGameObject.transform);
                         isCasting = true;
