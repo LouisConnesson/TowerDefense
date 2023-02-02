@@ -22,7 +22,10 @@ public class TutorialManager : MonoBehaviour
         FirstTutorialStep();
     }
 
- 
+    private void Update()
+    {
+        tutorialText.text = TutorialText[tutorialIndex];
+    }
     private void FirstTutorialStep()
     {
         tutorialText.text = TutorialText[0];
@@ -30,6 +33,8 @@ public class TutorialManager : MonoBehaviour
     }
     public void TutorialTextManager(bool isNext)
     {
+
+        Debug.Log("BOUTON APPUYE");
         if (isNext && tutorialIndex < TutorialText.Length -1)
             tutorialIndex++;
         else if(!isNext && tutorialIndex > 0)

@@ -263,8 +263,8 @@ MonoBehaviour:
   ennemiesList: []
   bulletPrefab: {fileID: 2684984797790714949, guid: 73d748c773f38b64f8016d7715f7d897,
     type: 3}
-  bulletSpawner: {fileID: 0}
-  particleLauncher: {fileID: 0}
+  bulletSpawner: {fileID: 5175036851740540001}
+  particleLauncher: {fileID: 8119730520044130328}
   isShooting: 0
   timeBetweenShoot: 0.5
   bulletDamages: 1
@@ -288,7 +288,7 @@ MonoBehaviour:
   - {fileID: 4416377779126093347}
   - {fileID: 5640403928046798159}
   - {fileID: 7145368333201287978}
-  - {fileID: 0}
+  - {fileID: 5175036851740540001}
   materials: []
   dissolve: 0
 --- !u!65 &5235275956159561418
@@ -728,6 +728,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c92bf4f92efedb744ac7f1311f79df63, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5004954d8de36a4b9f3df60640fc9c0, type: 3}
+--- !u!1 &5175036851740540001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5004954d8de36a4b9f3df60640fc9c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5408828963487334704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5519931231350597339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c5004954d8de36a4b9f3df60640fc9c0,
@@ -866,6 +872,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9461080ba5bd91f4e9ff56013d274914, type: 3}
+--- !u!198 &8119730520044130328 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198742971877052672, guid: 9461080ba5bd91f4e9ff56013d274914,
+    type: 3}
+  m_PrefabInstance: {fileID: 8245246824965112088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8242674451501506524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4183575970307780, guid: 9461080ba5bd91f4e9ff56013d274914,
