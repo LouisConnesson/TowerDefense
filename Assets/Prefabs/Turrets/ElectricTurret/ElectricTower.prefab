@@ -320,7 +320,6 @@ MonoBehaviour:
   - {fileID: 4416377779126093347}
   - {fileID: 5640403928046798159}
   - {fileID: 7145368333201287978}
-  - {fileID: 0}
   materials: []
   dissolve: 0
 --- !u!65 &5235275956159561418
