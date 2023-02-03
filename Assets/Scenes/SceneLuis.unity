@@ -3553,7 +3553,7 @@ MonoBehaviour:
   - {fileID: 1272942674525740152, guid: 3df57910a7b495a4e8969099134b3b79, type: 3}
   - {fileID: 6026338978298608752, guid: 2adf41091acfafd4ba2bdeb5bcff3a12, type: 3}
   - {fileID: 9068590295730445962, guid: c0c59509c4e5e9449a57b837b0e55018, type: 3}
-  - {fileID: 3413270932785118550, guid: a2bcb7657e43c714684f7095c5949b42, type: 3}
+  - {fileID: 8556991236918446568, guid: 5b0631d9fe4449941bf4766490245f2b, type: 3}
   classicCamera: {fileID: 891755373}
 --- !u!4 &223430455
 Transform:
@@ -4128,7 +4128,7 @@ MonoBehaviour:
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 2600142108193122284, guid: a2bcb7657e43c714684f7095c5949b42,
+      Prefab: {fileID: 8556991236918446571, guid: 5b0631d9fe4449941bf4766490245f2b,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
