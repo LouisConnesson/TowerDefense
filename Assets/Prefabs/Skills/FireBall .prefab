@@ -79,8 +79,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6976247d607e0c04497a7d6e0c95bc33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damages: 20
   fireBallParticles: {fileID: 2698172156607103318}
   explosionParticles: {fileID: 1794814202575482594}
+  explosionCollider: {fileID: 0}
 --- !u!114 &-8552600785435116516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18722,31 +18724,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2705121868374292245}
     m_Modifications:
-    - target: {fileID: -5347072016174185361, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
-        type: 3}
-      propertyPath: SyncScaleX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5347072016174185361, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
-        type: 3}
-      propertyPath: SyncScaleY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5347072016174185361, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
-        type: 3}
-      propertyPath: SyncScaleZ
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5347072016174185361, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
-        type: 3}
-      propertyPath: SyncRotAngleX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -639713721419775574, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
-        type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 951099334
-      objectReference: {fileID: 0}
     - target: {fileID: 460818085318949210, guid: 2c6b7dc1e6205d344b81c40e5c65e6ef,
         type: 3}
       propertyPath: m_Name
