@@ -11,8 +11,8 @@ public class FireBall : NetworkBehaviour
     {
         fireBallParticles.Play();
         explosionParticles.Stop();
-        if(explosionCollider)
-        explosionCollider.enabled = false;
+        //if(explosionCollider)
+        //explosionCollider.enabled = false;
 
 
     }
@@ -31,21 +31,32 @@ public class FireBall : NetworkBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+
         //if (!IsOwner) return;
         fireBallParticles.Stop();
         if (explosionCollider)
             explosionCollider.enabled = true;
 
         explosionParticles.Play();
+
+        if (collision.gameObject.tag == "Ennemy"  || collision.gameObject.tag == "mob")
+        {
+            if (collision.gameObject.GetComponent<MobLife>())
+            {
+                Debug.Log("mob detected");
+
+                collision.gameObject.GetComponent<MobLife>().TakeDamage(damages);
+
+            }
+          
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ennemy" && other.gameObject.GetComponent<MobLife>())
-        {
-            Debug.Log("mob detected");
+        Debug.Log("collision firebll detected");
 
-            other.gameObject.GetComponent<MobLife>().TakeDamage(damages);
-        }
+      
     }
 }

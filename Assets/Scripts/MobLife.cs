@@ -22,6 +22,7 @@ public class MobLife : MonoBehaviour
 
     public void TakeDamage(float damages)
     {
+        Debug.Log("take damage ds mob");
         health -= damages;
     }
    

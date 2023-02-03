@@ -112,7 +112,7 @@ public class ConstructManager : MonoBehaviour //NetworkBehaviour
                         skill.transform.position = RightHandGameObject.transform.position;
                         skill.transform.rotation = RightHandGameObject.transform.rotation;
                     }
-                    Debug.Log(triggerValue);
+                    //Debug.Log(triggerValue);
 
                 }
                 else
@@ -206,7 +206,7 @@ public class ConstructManager : MonoBehaviour //NetworkBehaviour
         
         yield return new WaitForSeconds(constructCD);
         isConstructAvailable = true;
-        print("WaitAndPrint ");
+       // print("WaitAndPrint ");
         
     }
     #endregion

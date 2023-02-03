@@ -32525,8 +32525,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6976247d607e0c04497a7d6e0c95bc33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damages: 50
   fireBallParticles: {fileID: 3752690484088557210}
   explosionParticles: {fileID: 329372134271276801}
+  explosionCollider: {fileID: 4929811404266841861}
 --- !u!54 &4929811404266841862
 Rigidbody:
   m_ObjectHideFlags: 0

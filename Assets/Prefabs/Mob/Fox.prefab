@@ -1143,7 +1143,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8330241850919749892}
-  m_LocalRotation: {x: -0.7071068, y: -4.870169e-24, z: 3.0137094e-24, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0000000037252903, y: 1.922014, z: 1.891749e-10}
   m_LocalScale: {x: 80.19062, y: 270.28296, z: 83.786064}
   m_ConstrainProportionsScale: 0
@@ -1288,6 +1288,7 @@ GameObject:
   - component: {fileID: 5585576425197112826}
   - component: {fileID: 3540522241888188029}
   - component: {fileID: 365348751145782081}
+  - component: {fileID: 3753501261898199317}
   m_Layer: 0
   m_Name: Fox
   m_TagString: mob
@@ -1304,7 +1305,7 @@ Transform:
   m_GameObject: {fileID: 8419475715487237681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 228831942613568533}
@@ -1411,7 +1412,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2.47
-  m_Speed: 0.2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1451,6 +1452,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3753501261898199317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419475715487237681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50cbefcfd91a094396ff5d75c576d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &8716642026915678206
 GameObject:
   m_ObjectHideFlags: 0
