@@ -61,7 +61,10 @@ public class PlayerNetwork : NetworkBehaviour
         InputDevices.GetDevices(inputDevices);
 
         if (inputDevices.Count > 0)
+        {
             GetComponentInChildren<Camera>().gameObject.SetActive(false);
+            Debug.Log("XR LANCEEEEEE");
+        }
         else
             GetComponentInChildren<Camera>().gameObject.SetActive(true);
 
