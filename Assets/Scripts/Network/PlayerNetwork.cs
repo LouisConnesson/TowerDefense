@@ -61,7 +61,10 @@ public class PlayerNetwork : NetworkBehaviour
         if (inputDevices.Count > 0)
             GetComponentInChildren<Camera>().gameObject.SetActive(false);
         else
+        {
+            if (!IsOwner) return;
             GetComponentInChildren<Camera>().gameObject.SetActive(true);
+        }
 
         canvaPlayer.SetActive(false);
     }
