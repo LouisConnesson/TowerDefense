@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 4528566486012938800}
   m_Layer: 0
   m_Name: rat
-  m_TagString: Untagged
+  m_TagString: mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

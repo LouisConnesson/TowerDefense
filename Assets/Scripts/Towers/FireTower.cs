@@ -110,7 +110,7 @@ public class FireTower : MonoBehaviour
     {
         if (isMaterialized)
         {
-            if (other.tag == "Ennemy")
+            if (other.tag == "Ennemy" || other.tag == "mob")
             {
 
                 ennemiesList.Add(other.gameObject);
@@ -122,7 +122,7 @@ public class FireTower : MonoBehaviour
     {
         if (isMaterialized)
         {
-            if (other.tag == "Ennemy")
+            if (other.tag == "Ennemy" || other.tag=="mob")
             {
                 for (int i = 0; i < ennemiesList.Count; i++)
                 {
