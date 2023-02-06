@@ -8,13 +8,15 @@ public class WallSkill : MonoBehaviour
     [SerializeField] private GameObject magicBallParticles;
     [SerializeField] private GameObject explosionParticles;
     [SerializeField] private float lifeDuration;
+    [SerializeField] private bool isInfinite = false;
 
     //[SerializeField] private ParticleSystem explosionParticles;
     void Start()
     {
         Debug.Log("Apparition magic ball");
         magicBallParticles.GetComponent<ParticleSystem>().Play();
-        explosionParticles.SetActive(false);
+        if(!isInfinite)
+            explosionParticles.SetActive(false);
         explosionParticles.GetComponent<ParticleSystem>().Stop();
     }
 
@@ -41,6 +43,7 @@ public class WallSkill : MonoBehaviour
         explosionParticles.SetActive(true);
         explosionParticles.GetComponent<ParticleSystem>().Play();
 
-        StartCoroutine("DestroyWall");
+        if(!isInfinite)
+            StartCoroutine("DestroyWall");
     }
 }
