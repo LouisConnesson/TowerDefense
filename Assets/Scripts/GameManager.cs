@@ -28,12 +28,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         if (inputDevices.Count > 0)
         {
             XROrigin.SetActive(true);
-            classicCamera.gameObject.SetActive(false);
         }
         else
         {
             XROrigin.SetActive(false);
-            classicCamera.gameObject.SetActive(true);
         }
 
     }
@@ -57,8 +55,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         return castle.position;
     }
 
-    public Transform GetMobSelected()
+    public Transform GetMobSelected(int mobselected)
     {
-        return mobList[Random.Range(0, mobList.Count)];
+        return mobList[mobselected];
     }
 }

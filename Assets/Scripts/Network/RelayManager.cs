@@ -41,6 +41,10 @@ public class RelayManager : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartHost();
             joinCodeText.text = joinCode;
+
+            //Lock mouse and set it not visible
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             if (!displayUI)
             {
                 gameObject.SetActive(false);

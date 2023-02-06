@@ -1395,6 +1395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760841952601244}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760839997329130
 GameObject:
@@ -1544,6 +1546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760841079366669}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840010831947
 GameObject:
@@ -1828,6 +1832,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760841243365755}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840046129282
 GameObject:
@@ -2588,6 +2594,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760840862670770}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840096200666
 GameObject:
@@ -5959,6 +5967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760842003047314}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840387165187
 GameObject:
@@ -6998,6 +7008,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760840663196200}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840461186382
 GameObject:
@@ -7147,6 +7159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760841163519257}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840462913691
 GameObject:
@@ -7983,6 +7997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760841629346077}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840546003426
 GameObject:
@@ -10047,6 +10063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760840254591498}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840706658100
 GameObject:
@@ -11209,6 +11227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760840990824469}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840834093654
 GameObject:
@@ -12279,6 +12299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760840681923667}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760840941397331
 GameObject:
@@ -12933,6 +12955,7 @@ MonoBehaviour:
   textTimerSkill: {fileID: 2166760839915243734}
   buttonSkill: {fileID: 2166760841004520365}
   buttonSkillUsed: {fileID: 2166760841089935598}
+  mobSelection: -1
 --- !u!1 &2166760840963828659
 GameObject:
   m_ObjectHideFlags: 0
@@ -15188,7 +15211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2166760841098190007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16499,6 +16522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760840640859858}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760841194740305
 GameObject:
@@ -20739,6 +20764,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760841746438430}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760841471461982
 GameObject:
@@ -22489,6 +22516,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760841792796752}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760841549867694
 GameObject:
@@ -23820,6 +23849,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760840293789171}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760841621810303
 GameObject:
@@ -24318,6 +24349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760839978403145}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760841638118513
 GameObject:
@@ -25952,6 +25985,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760841248377804}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760841733967096
 GameObject:
@@ -26431,6 +26466,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760839916573696}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760841751582733
 GameObject:
@@ -26715,6 +26752,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760841051287147}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760841752647976
 GameObject:
@@ -27781,6 +27820,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nb: 0
   textSkill: {fileID: 2166760840632647709}
+  textCost: {fileID: 0}
+  textNotif: {fileID: 0}
   m_PlayerInterface: {fileID: 2166760841299962869}
 --- !u!1 &2166760841809819941
 GameObject:

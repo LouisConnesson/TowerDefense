@@ -10,6 +10,8 @@ public class PlayerInterface : MonoBehaviour
     public GameObject buttonSkill;
     public GameObject buttonSkillUsed;
     private int timer = 30;
+    public int mobSelection=-1;
+
     private void Awake()
     {
         StartCoroutine(timerCoins());
@@ -22,26 +24,31 @@ public class PlayerInterface : MonoBehaviour
 
     public void spawnMob1()
     {
+        mobSelection = 0;
         PlayerPrefs.SetInt("typeOfMob", 0);
         PlayerPrefs.SetInt("costOfMob", 50);
     }
     public void spawnMob2()
     {
+        mobSelection = 1;
         PlayerPrefs.SetInt("typeOfMob", 1);
         PlayerPrefs.SetInt("costOfMob", 100);
     }
     public void spawnMob3()
     {
+        mobSelection = 2;
         PlayerPrefs.SetInt("typeOfMob", 2);
         PlayerPrefs.SetInt("costOfMob", 120);
     }
     public void spawnMob4()
     {
+        mobSelection = 3;
         PlayerPrefs.SetInt("typeOfMob", 3);
         PlayerPrefs.SetInt("costOfMob", 350);
     }
     public void spawnMob5()
     {
+        mobSelection = 4;
         PlayerPrefs.SetInt("typeOfMob", 4);
         PlayerPrefs.SetInt("costOfMob", 150);
     }

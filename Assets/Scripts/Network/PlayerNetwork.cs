@@ -4,6 +4,7 @@ using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR;
 
 public class PlayerNetwork : NetworkBehaviour
 {
@@ -12,6 +13,15 @@ public class PlayerNetwork : NetworkBehaviour
     private List<Transform> mobList = new List<Transform>();
     [SerializeField] bool isPlacingHerse = false;
     [SerializeField] Quaternion herseRotation = Quaternion.identity;
+
+    [SerializeField] float moveSpeed;
+    [SerializeField] float rotateSpeed;
+
+    [SerializeField] GameObject canvaPlayer;
+
+    bool SelectMod = false;
+
+    int mobselected=-1;
 
     //private NavMeshSurface surface;
 
@@ -43,21 +53,24 @@ public class PlayerNetwork : NetworkBehaviour
             };
         }*/
 
-    void Update()
+    private void Start()
     {
         if (!IsOwner) return;
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SpawnMobsServerRPC(GetRandomSpawnPoint(GameManager.Instance.GetSpawnPointList()));
-            //TestClientRPC(new ClientRpcParams { Send= new ClientRpcSendParams { TargetClientIds = new List<ulong> { 1 } } });
-            /*            newValue.Value = new MyCustomData
-                        {
-                            _int = 10,
-                            _bool = true,
-                            _string = "ouioui",
-                        };*/
-        }
+        var inputDevices = new List<UnityEngine.XR.InputDevice>();
+        InputDevices.GetDevices(inputDevices);
+
+        if (inputDevices.Count > 0)
+            GetComponentInChildren<Camera>().gameObject.SetActive(false);
+        else
+            GetComponentInChildren<Camera>().gameObject.SetActive(true);
+
+        canvaPlayer.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (!IsOwner) return;
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
@@ -67,26 +80,50 @@ public class PlayerNetwork : NetworkBehaviour
 
         Vector3 InputVector = new Vector3(0, 0, 0);
 
+        if (!SelectMod)
+            transform.eulerAngles += new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotateSpeed;
+
         if (Input.GetKey(KeyCode.Z))
         {
-            InputVector.z += 1;
+            InputVector += transform.forward;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            InputVector.z -= 1;
+            InputVector -= transform.forward;
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            InputVector.x -= 1;
+            InputVector -= transform.right;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            InputVector.x += 1;
+            InputVector += transform.right;
         }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
             isPlacingHerse = isPlacingHerse?false:true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !SelectMod && mobselected != -1)
+        {
+            RaycastHit hit;
+            Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity);
+
+            if (hit.collider.transform.tag == "MobSpawn")
+            {
+                SpawnMobsServerRPC(hit.point);
+            }
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            canvaPlayer.SetActive(true);
+            //Lock mouse and set it not visible
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            SelectMod = true;
         }
 
         if (isPlacingHerse)
@@ -105,9 +142,9 @@ public class PlayerNetwork : NetworkBehaviour
             }
         }
 
-
-        float moveSpeed = 3f;
-        transform.position += InputVector * moveSpeed * Time.deltaTime;
+        if (!SelectMod)
+            transform.localPosition += InputVector * moveSpeed * Time.deltaTime;
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 
     [ServerRpc]
@@ -116,7 +153,7 @@ public class PlayerNetwork : NetworkBehaviour
         //Debug.Log("TestServerRPC : " + OwnerClientId + " ; " + serverRpcParams.Receive.SenderClientId);
 
         //SPAWN MOB AND INIT HIS INITIAL POSITION
-        Transform spawnedObjectTransform = Instantiate(GameManager.Instance.GetMobSelected(), spawnPosition, Quaternion.identity, transform.parent);
+        Transform spawnedObjectTransform = Instantiate(GameManager.Instance.GetMobSelected(mobselected), spawnPosition, Quaternion.identity, transform.parent);
         spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
 
         //INIT HIS DESTINATION
@@ -143,5 +180,18 @@ public class PlayerNetwork : NetworkBehaviour
     public void TestClientRPC(ClientRpcParams clientRpcParams)
     {
         Debug.Log("TestServerRPC : " + OwnerClientId + " ; " + clientRpcParams.Send.TargetClientIds);
+    }
+
+    public void BackToGodMod()
+    {
+        if (!IsOwner) return;
+
+        //Lock mouse and set it not visible
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        canvaPlayer.SetActive(false);
+
+        SelectMod = false;
+        mobselected = canvaPlayer.GetComponent<PlayerInterface>().mobSelection;
     }
 }
