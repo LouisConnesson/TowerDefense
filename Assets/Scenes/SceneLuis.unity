@@ -1422,7 +1422,7 @@ GameObject:
   - component: {fileID: 109155167}
   - component: {fileID: 109155166}
   m_Layer: 0
-  m_Name: er
+  m_Name: ConnectionCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3684,7 +3684,7 @@ MonoBehaviour:
   - {fileID: 9068590295730445962, guid: c0c59509c4e5e9449a57b837b0e55018, type: 3}
   - {fileID: 1272942674525740152, guid: 3df57910a7b495a4e8969099134b3b79, type: 3}
   - {fileID: 2698561248185927437, guid: f2a4560fb11337941ab783da612ba071, type: 3}
-  classicCamera: {fileID: 0}
+  classicCamera: {fileID: 109155168}
 --- !u!4 &223430455
 Transform:
   m_ObjectHideFlags: 0

@@ -28,10 +28,12 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         if (inputDevices.Count > 0)
         {
             XROrigin.SetActive(true);
+            classicCamera.gameObject.SetActive(false);
         }
         else
         {
             XROrigin.SetActive(false);
+            classicCamera.gameObject.SetActive(true);
         }
 
     }
