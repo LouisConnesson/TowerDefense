@@ -55,8 +55,6 @@ public class PlayerNetwork : NetworkBehaviour
 
     private void Start()
     {
-        if (!IsOwner) return;
-
         var inputDevices = new List<UnityEngine.XR.InputDevice>();
         InputDevices.GetDevices(inputDevices);
 
