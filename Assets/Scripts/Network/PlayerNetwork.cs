@@ -23,7 +23,7 @@ public class PlayerNetwork : NetworkBehaviour
 
     bool SelectMod = false;
 
-    int mobselected=-1;
+    [SerializeField] int mobselected=-1;
     List<InputDevice> inputDevices = new List<InputDevice>();
 
     //private NavMeshSurface surface;
@@ -164,7 +164,7 @@ public class PlayerNetwork : NetworkBehaviour
 
         //SPAWN MOB AND INIT HIS INITIAL POSITION
         int mobid = mobselected;
-        if (mobselected!=-1)
+        if (mobselected==-1)
             mobid = Random.Range(0, 5);
 
 
