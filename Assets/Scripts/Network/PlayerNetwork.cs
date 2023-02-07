@@ -58,15 +58,16 @@ public class PlayerNetwork : NetworkBehaviour
         var inputDevices = new List<UnityEngine.XR.InputDevice>();
         InputDevices.GetDevices(inputDevices);
 
-        if (inputDevices.Count > 0)
-            GetComponentInChildren<Camera>().gameObject.SetActive(false);
-        else
+        GetComponentInChildren<Camera>().gameObject.SetActive(false);
+        canvaPlayer.SetActive(false);
+
+        if (!IsOwner)
+            return;
+
+        if (inputDevices.Count <= 0)
         {
-            if (!IsOwner) return;
             GetComponentInChildren<Camera>().gameObject.SetActive(true);
         }
-
-        canvaPlayer.SetActive(false);
     }
 
     void Update()
