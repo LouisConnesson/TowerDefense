@@ -164,7 +164,7 @@ public class PlayerNetwork : NetworkBehaviour
 
         //SPAWN MOB AND INIT HIS INITIAL POSITION
         int mobid = mobselectedinServer;
-        if (mobselected == -1)
+        if (mobselectedinServer == -1)
             mobid = Random.Range(0, 5);
 
 
