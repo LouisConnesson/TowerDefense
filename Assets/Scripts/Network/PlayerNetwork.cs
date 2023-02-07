@@ -158,12 +158,12 @@ public class PlayerNetwork : NetworkBehaviour
     }
 
     [ServerRpc]
-    public void SpawnMobsServerRPC(Vector3 spawnPosition)
+    public void SpawnMobsServerRPC(Vector3 spawnPosition, int mobselectedinServer)
     {
         //Debug.Log("TestServerRPC : " + OwnerClientId + " ; " + serverRpcParams.Receive.SenderClientId);
 
         //SPAWN MOB AND INIT HIS INITIAL POSITION
-        int mobid = mobselected;
+        int mobid = mobselectedinServer;
         if (mobselected==-1)
             mobid = Random.Range(0, 5);
 
