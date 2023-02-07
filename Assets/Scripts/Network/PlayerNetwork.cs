@@ -24,6 +24,7 @@ public class PlayerNetwork : NetworkBehaviour
     bool SelectMod = false;
 
     int mobselected=-1;
+    List<InputDevice> inputDevices = new List<InputDevice>();
 
     //private NavMeshSurface surface;
 
@@ -57,7 +58,6 @@ public class PlayerNetwork : NetworkBehaviour
 
     private void Start()
     {
-        var inputDevices = new List<UnityEngine.XR.InputDevice>();
         InputDevices.GetDevices(inputDevices);
 
         cam = GetComponentInChildren<Camera>().gameObject;
@@ -126,7 +126,7 @@ public class PlayerNetwork : NetworkBehaviour
             SpawnMobsServerRPC(GameManager.Instance.GetSpawnPointList()[Random.Range(0,3)].position);
 
         }
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape) && inputDevices.Count == 0)
         {
             canvaPlayer.SetActive(true);
             //Lock mouse and set it not visible
