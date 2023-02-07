@@ -29,11 +29,11 @@ public class Bullet : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ennemy" && other.gameObject.GetComponent<MobLife>())
+        if (other.gameObject.tag == "Ennemy" || other.gameObject.tag == "mob" )
         {
             Debug.Log("mob detected trigger");
-
-            other.gameObject.GetComponent<MobLife>().TakeDamage(damages);
+            if(other.gameObject.GetComponent<MobLife>())
+                other.gameObject.GetComponent<MobLife>().TakeDamage(damages);
         }
     }
 }

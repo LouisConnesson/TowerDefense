@@ -63,7 +63,7 @@ public class FireTower : MonoBehaviour
 
                 // rotation of the flamethrower
                 objectToRotate.transform.LookAt(ennemy.transform);
-                float newSpeed = (dist * 5) / 3;
+                float newSpeed = (dist * 10) / 3;
 
                 ParticleSystem.MainModule psmain = particleLauncher.main;
                 psmain.startSpeed = newSpeed;

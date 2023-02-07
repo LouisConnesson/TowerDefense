@@ -116,7 +116,11 @@ public class PlayerNetwork : NetworkBehaviour
                 SpawnMobsServerRPC(hit.point);
             }
         }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SpawnMobsServerRPC(GameManager.Instance.GetSpawnPointList()[Random.Range(0,3)].position);
 
+        }
         if (Input.GetKey(KeyCode.Escape))
         {
             canvaPlayer.SetActive(true);
@@ -154,7 +158,7 @@ public class PlayerNetwork : NetworkBehaviour
         //Debug.Log("TestServerRPC : " + OwnerClientId + " ; " + serverRpcParams.Receive.SenderClientId);
 
         //SPAWN MOB AND INIT HIS INITIAL POSITION
-        Transform spawnedObjectTransform = Instantiate(GameManager.Instance.GetMobSelected(mobselected), spawnPosition, Quaternion.identity, transform.parent);
+        Transform spawnedObjectTransform = Instantiate(GameManager.Instance.GetMobSelected(Random.Range(0,5)), spawnPosition, Quaternion.identity, transform.parent);
         spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
 
         //INIT HIS DESTINATION

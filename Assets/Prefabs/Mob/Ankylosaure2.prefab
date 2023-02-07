@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 2698561248185927442}
   - component: {fileID: 2698561248185927441}
   - component: {fileID: 2698561248185927440}
+  - component: {fileID: -3359408487879401286}
   m_Layer: 0
   m_Name: Ankylosaure2
   m_TagString: mob
@@ -400,6 +401,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-3359408487879401286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698561248185927436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50cbefcfd91a094396ff5d75c576d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &2932589120637876880
 GameObject:
   m_ObjectHideFlags: 0
