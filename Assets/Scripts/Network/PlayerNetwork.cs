@@ -163,7 +163,12 @@ public class PlayerNetwork : NetworkBehaviour
         //Debug.Log("TestServerRPC : " + OwnerClientId + " ; " + serverRpcParams.Receive.SenderClientId);
 
         //SPAWN MOB AND INIT HIS INITIAL POSITION
-        Transform spawnedObjectTransform = Instantiate(GameManager.Instance.GetMobSelected(Random.Range(0,5)), spawnPosition, Quaternion.identity, transform.parent);
+        int mobid = mobselected;
+        if (mobselected!=-1)
+            mobid = Random.Range(0, 5);
+
+
+        Transform spawnedObjectTransform = Instantiate(GameManager.Instance.GetMobSelected(mobid), spawnPosition, Quaternion.identity, transform.parent);
         spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
 
         //INIT HIS DESTINATION
