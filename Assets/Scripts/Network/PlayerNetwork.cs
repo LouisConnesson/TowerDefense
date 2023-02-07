@@ -19,6 +19,8 @@ public class PlayerNetwork : NetworkBehaviour
 
     [SerializeField] GameObject canvaPlayer;
 
+    [SerializeField] GameObject cam;
+
     bool SelectMod = false;
 
     int mobselected=-1;
@@ -58,15 +60,17 @@ public class PlayerNetwork : NetworkBehaviour
         var inputDevices = new List<UnityEngine.XR.InputDevice>();
         InputDevices.GetDevices(inputDevices);
 
-        GetComponentInChildren<Camera>().gameObject.SetActive(false);
+        cam = GetComponentInChildren<Camera>().gameObject;
+        cam.SetActive(false);
+
         canvaPlayer.SetActive(false);
 
         if (!IsOwner)
             return;
 
-        if (inputDevices.Count <= 0)
+        if (inputDevices.Count == 0)
         {
-            GetComponentInChildren<Camera>().gameObject.SetActive(true);
+            cam.SetActive(true);
         }
     }
 
