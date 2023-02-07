@@ -51,6 +51,7 @@ MonoBehaviour:
   magicBallParticles: {fileID: 3949161462670686443}
   explosionParticles: {fileID: 1563795847923303369}
   lifeDuration: 11
+  isInfinite: 0
 --- !u!54 &1563795846854355199
 Rigidbody:
   m_ObjectHideFlags: 0
