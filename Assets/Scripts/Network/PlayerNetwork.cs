@@ -23,7 +23,7 @@ public class PlayerNetwork : NetworkBehaviour
 
     bool SelectMod = false;
 
-    [SerializeField] int mobselected=-1;
+    [SerializeField] int mobselected = -1;
     List<InputDevice> inputDevices = new List<InputDevice>();
 
     //private NavMeshSurface surface;
@@ -108,7 +108,7 @@ public class PlayerNetwork : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            isPlacingHerse = isPlacingHerse?false:true;
+            isPlacingHerse = isPlacingHerse ? false : true;
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && !SelectMod && mobselected != -1)
@@ -118,12 +118,12 @@ public class PlayerNetwork : NetworkBehaviour
 
             if (hit.collider.transform.tag == "MobSpawn")
             {
-                SpawnMobsServerRPC(hit.point);
+                SpawnMobsServerRPC(hit.point, mobselected);
             }
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
-            SpawnMobsServerRPC(GameManager.Instance.GetSpawnPointList()[Random.Range(0,3)].position);
+            SpawnMobsServerRPC(GameManager.Instance.GetSpawnPointList()[Random.Range(0, 3)].position, -1);
 
         }
         if (Input.GetKey(KeyCode.Escape) && inputDevices.Count == 0)
@@ -138,7 +138,7 @@ public class PlayerNetwork : NetworkBehaviour
 
         if (isPlacingHerse)
         {
-            herseRotation.eulerAngles = new Vector3(0, ((int)herseRotation.eulerAngles.y + (int) Input.mouseScrollDelta.y),0); //marche po
+            herseRotation.eulerAngles = new Vector3(0, ((int)herseRotation.eulerAngles.y + (int)Input.mouseScrollDelta.y), 0); //marche po
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -164,7 +164,7 @@ public class PlayerNetwork : NetworkBehaviour
 
         //SPAWN MOB AND INIT HIS INITIAL POSITION
         int mobid = mobselectedinServer;
-        if (mobselected==-1)
+        if (mobselected == -1)
             mobid = Random.Range(0, 5);
 
 
@@ -191,7 +191,7 @@ public class PlayerNetwork : NetworkBehaviour
             mobAgent.SetDestination(destination);
     }
 
-    [ClientRpc] 
+    [ClientRpc]
     public void TestClientRPC(ClientRpcParams clientRpcParams)
     {
         Debug.Log("TestServerRPC : " + OwnerClientId + " ; " + clientRpcParams.Send.TargetClientIds);
