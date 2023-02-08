@@ -278,8 +278,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.7376108
-  m_Center: {x: 0.10191345, y: 0.89395976, z: -0.06745267}
+  m_Radius: 7.6745143
+  m_Center: {x: 1.1999519, y: 0.89395976, z: 1.212935}
 --- !u!114 &5040952565269599889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   particleLauncher: {fileID: 8119730520044130328}
   isShooting: 0
   timeBetweenShoot: 2.5
-  bulletDamages: 100
+  bulletDamages: 20
   bulletSpeed: 30
   isMaterialized: 0
 --- !u!114 &6523129442624476389
