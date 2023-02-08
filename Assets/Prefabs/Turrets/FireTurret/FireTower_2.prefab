@@ -395,7 +395,7 @@ MonoBehaviour:
   particleLauncher: {fileID: 4720380285554340740}
   isShooting: 0
   timeBetweenShoot: 0.5
-  bulletDamages: 5
+  bulletDamages: 0.5
   bulletSpeed: 60
   isMaterialized: 0
 --- !u!114 &6523129442624476389
