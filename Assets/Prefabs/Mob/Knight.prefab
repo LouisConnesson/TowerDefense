@@ -575,6 +575,7 @@ GameObject:
   - component: {fileID: 3054431622993959261}
   - component: {fileID: 3054431622993959258}
   - component: {fileID: 3054431622993959259}
+  - component: {fileID: 7820970138494731839}
   m_Layer: 0
   m_Name: Knight
   m_TagString: mob
@@ -716,6 +717,26 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!95 &7820970138494731839
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3054431622993959255}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32c070ff476d5a04b87b687edc93b115, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3302844628899813076
 GameObject:
   m_ObjectHideFlags: 0
